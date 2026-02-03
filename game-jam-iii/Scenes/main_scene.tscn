@@ -1,6 +1,59 @@
 [gd_scene format=3 uid="uid://lly21y7jwda8"]
 
-[ext_resource type="Script" uid="uid://bsc5igufa2f64" path="res://Scripts/main_scene.gd" id="1_0f027"]
+[ext_resource type="Script" uid="uid://bsc5igufa2f64" path="res://Scripts/main_scene.gd" id="1_52fb6"]
+[ext_resource type="PackedScene" uid="uid://cgjnximtcyxhj" path="res://Scenes/player.tscn" id="2_6l7je"]
+[ext_resource type="PackedScene" uid="uid://htdttq03eg5r" path="res://Scenes/star_template.tscn" id="3_jv6wh"]
 
-[node name="Main_Scene" type="Node3D" unique_id=1994000458]
-script = ExtResource("1_0f027")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6l7je"]
+sky_top_color = Color(0, 0, 0.21176471, 1)
+sky_horizon_color = Color(0.08732572, 0.08313295, 0.13135536, 1)
+ground_bottom_color = Color(0.08005991, 0.063288815, 0.044413716, 1)
+ground_horizon_color = Color(0.08732572, 0.08313295, 0.13135536, 1)
+
+[sub_resource type="Sky" id="Sky_jv6wh"]
+sky_material = SubResource("ProceduralSkyMaterial_6l7je")
+
+[sub_resource type="Environment" id="Environment_x6ack"]
+background_mode = 2
+sky = SubResource("Sky_jv6wh")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x6ack"]
+radius = 1000.0
+height = 10000.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iacmt"]
+radius = 1000.0
+height = 9000.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ev3c"]
+albedo_color = Color(1.0611206, 0, 0, 0.7921569)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_maf8m"]
+material = SubResource("StandardMaterial3D_6ev3c")
+radius = 1000.0
+height = 10000.0
+
+[node name="Main_Scene" type="Area3D" unique_id=418058434]
+script = ExtResource("1_52fb6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=830483303]
+environment = SubResource("Environment_x6ack")
+
+[node name="Player" parent="." unique_id=1835510441 instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 171.08543)
+
+[node name="GalaxyColl" type="CollisionShape3D" parent="." unique_id=1232730275]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -2.2885211e-05, 4195.7676)
+shape = SubResource("CapsuleShape3D_x6ack")
+
+[node name="GalaxyColl2" type="CollisionShape3D" parent="GalaxyColl" unique_id=2141302317]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, -52.53955, 3.7860154e-05)
+shape = SubResource("CapsuleShape3D_iacmt")
+
+[node name="WarningMesh" type="MeshInstance3D" parent="GalaxyColl/GalaxyColl2" unique_id=39541824]
+visible = false
+mesh = SubResource("CapsuleMesh_maf8m")
+
+[node name="StarTemplate" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]

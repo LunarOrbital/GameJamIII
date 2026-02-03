@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://htdttq03eg5r"]
+
+[ext_resource type="Script" uid="uid://cmpuksus8l7ko" path="res://Scripts/star_template.gd" id="1_odifk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odifk"]
+albedo_color = Color(18.892157, 14.877706, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_odifk"]
+material = SubResource("StandardMaterial3D_odifk")
+radius = 100.0
+height = 200.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
+
+[node name="StarTemplate" type="RigidBody3D" unique_id=679551123]
+mass = 10000.0
+script = ExtResource("1_odifk")
+
+[node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=740407140]
+mesh = SubResource("SphereMesh_odifk")
+
+[node name="StarColl" type="CollisionShape3D" parent="." unique_id=1436746465]
+shape = SubResource("SphereShape3D_k8aup")
+
+[node name="Timer" type="Timer" parent="." unique_id=583920277]
+one_shot = true
+autostart = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=183410592]
+light_energy = 10000.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+omni_range = 99999.0
+omni_attenuation = 2.0
