@@ -15,6 +15,10 @@ run/main_scene="uid://lly21y7jwda8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[global_group]
+
+"Gravity Objects"="All objects to be affected by n gravity"
+
 [input]
 
 Forward={

@@ -1,8 +1,10 @@
 extends RigidBody3D
-@export var fuel := 100.0
-var thrust := 1000
-var isp = .01
-var SASSens := 10
+class_name player
+@export var fuel := 1000.0
+var currentSystem : RigidBody3D
+var thrust := 10000
+var isp = .1
+var SASSens := 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,7 +31,6 @@ func _process(delta: float) -> void:
 		if (Input.is_action_pressed("Down")):
 			apply_central_force(-global_basis.y * thrust * delta)
 			fuel -= isp
-			
 	if (true):
 		if (Input.is_action_pressed("PanLeft")):
 			apply_torque(global_basis.y * SASSens * delta)

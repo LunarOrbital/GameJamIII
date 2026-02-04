@@ -12,7 +12,10 @@ height = 200.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
 
-[node name="StarTemplate" type="RigidBody3D" unique_id=679551123]
+[sub_resource type="SphereShape3D" id="SphereShape3D_odifk"]
+radius = 1000.0
+
+[node name="StarTemplate" type="RigidBody3D" unique_id=679551123 groups=["Gravity Objects"]]
 mass = 10000.0
 script = ExtResource("1_odifk")
 
@@ -32,3 +35,8 @@ light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 omni_range = 99999.0
 omni_attenuation = 2.0
+
+[node name="SOI collision" type="Area3D" parent="." unique_id=1845636533]
+
+[node name="SOIColl" type="CollisionShape3D" parent="SOI collision" unique_id=1997463677]
+shape = SubResource("SphereShape3D_odifk")

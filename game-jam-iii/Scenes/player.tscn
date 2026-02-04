@@ -6,9 +6,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6t5aa"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_v0iea"]
-
-[node name="Player" type="RigidBody3D" unique_id=1835510441]
+[node name="Player" type="RigidBody3D" unique_id=1835510441 groups=["Gravity Objects"]]
+mass = 100.0
 script = ExtResource("1_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1992854852]
@@ -20,9 +19,5 @@ shape = SubResource("CapsuleShape3D_6t5aa")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1866059299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0877148, 0.06628454)
 current = true
+fov = 100.0
 far = 99999.0
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1445455312]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
-top_level = true
-mesh = SubResource("BoxMesh_v0iea")

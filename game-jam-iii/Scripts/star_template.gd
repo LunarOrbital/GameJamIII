@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name Star
 @onready var timer: Timer = $Timer
 var numPlanets : int
 @onready var star_mesh_temp_: MeshInstance3D = $"StarMesh(Temp)"
