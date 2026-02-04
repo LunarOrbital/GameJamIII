@@ -27,4 +27,10 @@ func _process(delta: float) -> void:
 				smallObj.apply_central_force(force * delta * angle)
 				print(smallObj.mass)
 				print(smallObj.linear_velocity)
-				
+			
+	if (Input.is_action_just_pressed("reset")):
+		print("EO1:Reset")
+		get_tree().reload_current_scene()
+	if (Input.is_action_just_pressed("quit")):
+		print("EO2:Quit")
+		get_tree().quit()

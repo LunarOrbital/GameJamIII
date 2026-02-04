@@ -12,6 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(linear_velocity)
 	if (fuel >= 0):
 		if (Input.is_action_pressed("Forward")):
 			apply_central_force(-global_basis.z * thrust * delta)

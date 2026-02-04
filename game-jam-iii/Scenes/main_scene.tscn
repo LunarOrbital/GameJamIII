@@ -40,3 +40,4 @@ shape = SubResource("CapsuleShape3D_x6ack")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=679917169]
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 312.43237, 0)
+current = true
