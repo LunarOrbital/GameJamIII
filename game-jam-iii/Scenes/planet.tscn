@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://biapg77r6k5qk"]
+
+[ext_resource type="Script" uid="uid://ca7ahay81tcx2" path="res://Scripts/planet.gd" id="1_vpe2g"]
+[ext_resource type="Texture2D" uid="uid://n67qu60dgpfh" path="res://Assets/icon.svg" id="2_m0iey"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ytj11"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skk7a"]
+albedo_texture = ExtResource("2_m0iey")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm2km"]
+albedo_color = Color(0.5481984, 0.6953982, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kmany"]
+material = SubResource("StandardMaterial3D_qm2km")
+radius = 100.0
+height = 200.0
+
+[node name="Planet" type="RigidBody3D" unique_id=891116493]
+mass = 1000.0
+script = ExtResource("1_vpe2g")
+
+[node name="PlanetColl" type="CollisionShape3D" parent="." unique_id=859253415]
+shape = SubResource("SphereShape3D_ytj11")
+
+[node name="TempMesh" type="MeshInstance3D" parent="." unique_id=1012625775]
+material_override = SubResource("StandardMaterial3D_skk7a")
+mesh = SubResource("SphereMesh_kmany")

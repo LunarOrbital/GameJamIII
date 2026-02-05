@@ -11,9 +11,13 @@ radius = 100.0
 height = 200.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
+radius = 99.52442
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_odifk"]
 radius = 1000.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
+radius = 119.77105
 
 [node name="StarTemplate" type="RigidBody3D" unique_id=679551123 groups=["Gravity Objects"]]
 mass = 10000.0
@@ -40,3 +44,10 @@ omni_attenuation = 2.0
 
 [node name="SOIColl" type="CollisionShape3D" parent="SOI collision" unique_id=1997463677]
 shape = SubResource("SphereShape3D_odifk")
+
+[node name="SunKillBox" type="Area3D" parent="." unique_id=2054332894]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SunKillBox" unique_id=258587338]
+shape = SubResource("SphereShape3D_yevqt")
+
+[connection signal="body_entered" from="SunKillBox" to="." method="_on_sun_kill_box_body_entered"]

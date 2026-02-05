@@ -14,3 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+func _on_sun_kill_box_body_entered(body: Node3D) -> void:
+	if (body is player):
+		print("you burned up and died")
+		get_tree().quit()

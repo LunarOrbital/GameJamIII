@@ -2,9 +2,9 @@ extends RigidBody3D
 class_name player
 @export var fuel := 1000.0
 var currentSystem : RigidBody3D
-var thrust := 10000
+var thrust := 30000
 var isp = .1
-var SASSens := 1000
+var SASSens := 800
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,7 +12,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(linear_velocity)
 	if (fuel >= 0):
 		if (Input.is_action_pressed("Forward")):
 			apply_central_force(-global_basis.z * thrust * delta)
