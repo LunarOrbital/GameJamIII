@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://htdttq03eg5r"]
 
 [ext_resource type="Script" uid="uid://cmpuksus8l7ko" path="res://Scripts/star_template.gd" id="1_odifk"]
+[ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="2_k8aup"]
+
+[sub_resource type="Curve" id="Curve_k8aup"]
+_limits = [0.0, 100.0, 0.0, 300.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(300, 100), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odifk"]
-albedo_color = Color(18.892157, 14.877706, 0, 1)
+albedo_color = Color(inf, inf, nan, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_odifk"]
 material = SubResource("StandardMaterial3D_odifk")
@@ -11,17 +17,12 @@ radius = 100.0
 height = 200.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
-radius = 99.52442
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_odifk"]
-radius = 1000.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
-radius = 119.77105
+radius = 102.52899
 
 [node name="StarTemplate" type="RigidBody3D" unique_id=679551123 groups=["Gravity Objects"]]
-mass = 10000.0
+mass = 100000.0
 script = ExtResource("1_odifk")
+spdCurve = SubResource("Curve_k8aup")
 
 [node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=740407140]
 mesh = SubResource("SphereMesh_odifk")
@@ -30,24 +31,17 @@ mesh = SubResource("SphereMesh_odifk")
 shape = SubResource("SphereShape3D_k8aup")
 
 [node name="Timer" type="Timer" parent="." unique_id=583920277]
+wait_time = 400.0
 one_shot = true
-autostart = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=183410592]
-light_energy = 10000.0
+light_energy = 70000.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 omni_range = 99999.0
 omni_attenuation = 2.0
 
-[node name="SOI collision" type="Area3D" parent="." unique_id=1845636533]
+[node name="Planet" parent="." unique_id=891116493 instance=ExtResource("2_k8aup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -209.65707)
 
-[node name="SOIColl" type="CollisionShape3D" parent="SOI collision" unique_id=1997463677]
-shape = SubResource("SphereShape3D_odifk")
-
-[node name="SunKillBox" type="Area3D" parent="." unique_id=2054332894]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SunKillBox" unique_id=258587338]
-shape = SubResource("SphereShape3D_yevqt")
-
-[connection signal="body_entered" from="SunKillBox" to="." method="_on_sun_kill_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

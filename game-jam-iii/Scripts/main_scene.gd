@@ -1,7 +1,6 @@
 extends Node3D
 var numStars : int
-var G := 60
-@onready var player: RigidBody3D = $Player
+@export var G := 60
 @onready var test_cam: Camera3D = $testCam
 
 
@@ -27,7 +26,7 @@ func _process(delta: float) -> void:
 				var force = G * (((smallObj.mass * largeObj.mass))/dist)
 				var angle = smallObj.global_position.direction_to(largeObj.global_position)
 				smallObj.apply_central_force(force * delta * angle)
-			
+
 	if (Input.is_action_just_pressed("reset")):
 		print("EO1:Reset")
 		get_tree().reload_current_scene()
