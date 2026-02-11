@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cvnsp"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6t5aa"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v0iea"]
 
 [node name="Player" type="RigidBody3D" unique_id=1835510441]
 mass = 10.0
@@ -14,7 +14,7 @@ script = ExtResource("1_v0iea")
 mesh = SubResource("CapsuleMesh_cvnsp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=237602112]
-shape = SubResource("CapsuleShape3D_6t5aa")
+shape = SubResource("CylinderShape3D_v0iea")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1866059299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0877148, 0.06628454)
