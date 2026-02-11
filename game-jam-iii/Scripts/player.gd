@@ -5,6 +5,8 @@ var currentSystem : RigidBody3D
 var thrust := 30000
 var isp = .1
 var SASSens := 500
+@export var currSystem : RigidBody3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

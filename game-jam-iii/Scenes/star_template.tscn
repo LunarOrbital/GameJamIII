@@ -19,7 +19,7 @@ radius = 100.0
 height = 200.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
-radius = 110.85475
+radius = 117.564
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
 radius = 97.64172
@@ -48,8 +48,9 @@ light_volumetric_fog_energy = 16.0
 omni_range = 99999.0
 omni_attenuation = 2.0
 
-[node name="Planet" parent="." unique_id=891116493 instance=ExtResource("2_k8aup")]
+[node name="Planet" parent="." unique_id=891116493 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_k8aup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -209.65707)
+currSystem = NodePath(".")
 
 [node name="starColl" type="CollisionShape3D" parent="." unique_id=849405545]
 shape = SubResource("SphereShape3D_yevqt")

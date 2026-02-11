@@ -4,18 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://cgjnximtcyxhj" path="res://Scenes/player.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://htdttq03eg5r" path="res://Scenes/star_template.tscn" id="3_jv6wh"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6l7je"]
-sky_top_color = Color(0, 0, 0.21176471, 1)
-sky_horizon_color = Color(0.08732572, 0.08313295, 0.13135536, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jv6wh"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.074585825, 0.070393056, 0.06567428, 1)
 ground_bottom_color = Color(0.08005991, 0.063288815, 0.044413716, 1)
-ground_horizon_color = Color(0.08732572, 0.08313295, 0.13135536, 1)
+ground_horizon_color = Color(0.074585825, 0.070393056, 0.06567428, 1)
 
-[sub_resource type="Sky" id="Sky_jv6wh"]
-sky_material = SubResource("ProceduralSkyMaterial_6l7je")
+[sub_resource type="Sky" id="Sky_x6ack"]
+sky_material = SubResource("ProceduralSkyMaterial_jv6wh")
 
-[sub_resource type="Environment" id="Environment_x6ack"]
+[sub_resource type="Environment" id="Environment_iacmt"]
 background_mode = 2
-sky = SubResource("Sky_jv6wh")
+sky = SubResource("Sky_x6ack")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -26,18 +26,28 @@ height = 10000.0
 [node name="Main_Scene" type="Area3D" unique_id=418058434]
 script = ExtResource("1_52fb6")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=830483303]
-environment = SubResource("Environment_x6ack")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=882848165]
+environment = SubResource("Environment_iacmt")
 
-[node name="Player" parent="." unique_id=1835510441 groups=["Gravity Objects"] instance=ExtResource("2_6l7je")]
+[node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") groups=["Gravity Objects"] instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 171.08543)
 gravity_scale = 0.0
+currSystem = NodePath("../StarTemplate")
 
 [node name="GalaxyColl" type="CollisionShape3D" parent="." unique_id=1232730275]
 transform = Transform3D(1.11, 0, 0, 0, -4.851964e-08, -1.11, 0, 1.11, -4.851964e-08, 0, -2.2885211e-05, 4195.7676)
 shape = SubResource("CapsuleShape3D_x6ack")
 
 [node name="StarTemplate" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
+
+[node name="StarTemplate2" parent="." unique_id=1084893307 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -760.52246, 0, 1996.313)
+
+[node name="StarTemplate3" parent="." unique_id=123596516 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.25537, 0, 7474.129)
+
+[node name="StarTemplate4" parent="." unique_id=1259881021 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 218.58765, 265.49243, 1850.3911)
 
 [node name="testCam" type="Camera3D" parent="." unique_id=679917169]
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0.011484027, -4.4210488e-08, 0.9999341, -0.9999341, 4.3206523e-08, 0.011484027, 0, 312.43237, 0)

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://tknykdbn8xdf"]
+
+[ext_resource type="Script" uid="uid://2oyoc6a8af8v" path="res://Scripts/start_screen.gd" id="1_i8r30"]
+
+[node name="StartScreen" type="Control" unique_id=789131218]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i8r30")
+
+[node name="MainMenu" type="Panel" parent="." unique_id=1656209276]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 40.0
+offset_right = 317.14706
+offset_bottom = 182.7019
+scale = Vector2(3.8752108, 3.8752108)
+
+[node name="StartButton" type="Button" parent="MainMenu" unique_id=1214742470]
+layout_mode = 0
+offset_left = 109.413414
+offset_top = 65.80287
+offset_right = 279.41342
+offset_bottom = 156.80287
+scale = Vector2(0.48629606, 0.49303585)
+theme_override_font_sizes/font_size = 50
+text = "Begin Flight"
+
+[node name="EndGame" type="Button" parent="MainMenu" unique_id=27774964]
+layout_mode = 0
+offset_left = 109.15536
+offset_top = 110.187546
+offset_right = 237.15536
+offset_bottom = 201.87753
+scale = Vector2(0.4889578, 0.37401882)
+theme_override_font_sizes/font_size = 32
+text = "Give Up"
+
+[node name="Credits" type="Button" parent="MainMenu" unique_id=742215846]
+layout_mode = 0
+offset_left = 172.37772
+offset_top = 110.187546
+offset_right = 300.37772
+offset_bottom = 208.18755
+scale = Vector2(0.62208945, 0.3534859)
+theme_override_font_sizes/font_size = 32
+text = "Play
+ Credits"
+
+[node name="Label" type="Label" parent="MainMenu" unique_id=1453390612]
+layout_mode = 0
+offset_right = 779.0
+offset_bottom = 248.67664
+scale = Vector2(0.43686956, 0.43686956)
+theme_override_font_sizes/font_size = 105
+text = "The Space 
+Race"
