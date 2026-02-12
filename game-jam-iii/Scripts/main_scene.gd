@@ -2,13 +2,17 @@ extends Node3D
 var numStars : int
 @export var G := 60
 @onready var test_cam: Camera3D = $testCam
-
+@export var packed_star : PackedScene 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numStars = randi_range(10, 20)
+	numStars = randi_range(4, 10)
 	Engine.time_scale = 1
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	for i in range(numStars):
+		var newStar : RigidBody3D = packed_star.instantiate()
+		newStar.position = Vector3(randi_range(-1000,1000),randi_range(-1000,1000),randi_range(0,10000))
+		print(newStar.position)
+# Called every frame. 'lta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#begin gravity code
 	for obj1 : RigidBody3D in get_tree().get_nodes_in_group("Gravity Objects"):

@@ -8,13 +8,11 @@ _limits = [0.0, 100.0, 0.0, 300.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(300, 100), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yevqt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8aup"]
 albedo_color = Color(18.892157, 18.892157, 0, 1)
-metallic = 1.0
-metallic_specular = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_yevqt"]
-material = SubResource("StandardMaterial3D_yevqt")
+material = SubResource("StandardMaterial3D_k8aup")
 radius = 100.0
 height = 200.0
 
@@ -45,7 +43,7 @@ one_shot = true
 light_energy = 70000.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
-omni_range = 99999.0
+omni_range = 1000.0
 omni_attenuation = 2.0
 
 [node name="Planet" parent="." unique_id=891116493 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_k8aup")]
@@ -55,5 +53,9 @@ currSystem = NodePath(".")
 [node name="starColl" type="CollisionShape3D" parent="." unique_id=849405545]
 shape = SubResource("SphereShape3D_yevqt")
 
+[node name="Timer2" type="Timer" parent="." unique_id=84032927]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="SunKillBox" to="." method="_on_sun_kill_box_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

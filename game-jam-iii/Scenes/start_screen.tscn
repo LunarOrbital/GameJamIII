@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://tknykdbn8xdf"]
 
 [ext_resource type="Script" uid="uid://2oyoc6a8af8v" path="res://Scripts/start_screen.gd" id="1_i8r30"]
+[ext_resource type="PackedScene" uid="uid://lly21y7jwda8" path="res://Scenes/main_scene.tscn" id="2_ainjc"]
 
 [node name="StartScreen" type="Control" unique_id=789131218]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i8r30")
+main = ExtResource("2_ainjc")
 
 [node name="MainMenu" type="Panel" parent="." unique_id=1656209276]
 layout_mode = 0
@@ -58,3 +60,7 @@ scale = Vector2(0.43686956, 0.43686956)
 theme_override_font_sizes/font_size = 105
 text = "The Space 
 Race"
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/EndGame" to="." method="_on_end_game_pressed"]
+[connection signal="pressed" from="MainMenu/Credits" to="." method="_on_credits_pressed"]
