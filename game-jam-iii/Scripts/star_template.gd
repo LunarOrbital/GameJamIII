@@ -20,9 +20,9 @@ func make_planet() -> void:
 	add_child(newPlanet)
 	newPlanet.position = Vector3( randi_range(4,8)*50, 0.0, 0.0)
 	newPlanet.mass *= randf_range(.8,1.2)
-	var spd = sqrt((60*mass)/newPlanet.position.x)/6
+	var spd = sqrt((60*mass)/newPlanet.position.x)/5.64
 	newPlanet.linear_velocity = Vector3(0,0,spd)
-	print(newPlanet.position)
+	newPlanet.scale*=Vector3(randf_range(-.8,1.2),randf_range(-.8,1.2),randf_range(-.8,1.2))
 	
 func _on_sun_kill_box_body_entered(body: Node3D) -> void:
 	if (body is player):
