@@ -3,13 +3,10 @@
 [ext_resource type="Script" uid="uid://cmpuksus8l7ko" path="res://Scripts/star_template.gd" id="1_odifk"]
 [ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="2_k8aup"]
 
-[sub_resource type="Curve" id="Curve_k8aup"]
-_limits = [0.0, 100.0, 0.0, 300.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(300, 100), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8aup"]
 albedo_color = Color(18.892157, 18.892157, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_yevqt"]
 material = SubResource("StandardMaterial3D_k8aup")
@@ -20,12 +17,179 @@ height = 200.0
 radius = 117.564
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
-radius = 97.64172
+radius = 2.809312
+
+[sub_resource type="Animation" id="Animation_k8aup"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StarMesh(Temp):scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StarMesh(Temp):scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StarMesh(Temp):scale:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_yevqt"]
+resource_name = "explode"
+length = 180.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0, 18.892157, -26.666668, 0, 0, 0, 0, -0.7519989, 3.1486928, 0, 0, 0, -2.5813346, 0, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0, 0, -26.666668, 3.148693, 0, 0, 5.2993636, -0.7519989, -0.8832273, 0, 0, 5.2993636, -2.5813346, 0, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -26.666668, 0, 0, 0, 18.892157, -0.7519989, -3.1486928, 0, 0, 18.892157, -2.5813346, 0, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -26.666668, 0, 0, 0, 1, -0.7519989, 0, 0, 0, 0, -2.5813346, 0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StarMesh(Temp):scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -26.666668, -0.6666667, 0, 0, 0.2, -0.7519989, 0.8, 0, 0, 10, -15.35202, 9, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StarMesh(Temp):scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -26.666668, -0.6666667, 0, 0, 0.2, -0.7519989, 0.8, 0, 0, 10, -15.552017, 10, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StarMesh(Temp):scale:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -26.666668, -0.6666667, 0, 0, 0.2, -0.7519989, 0.8, 0, 0, 10, -15.368973, 9, 0, 0),
+"times": PackedFloat32Array(0, 160, 164.512, 180)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsyqr"]
+_data = {
+&"RESET": SubResource("Animation_k8aup"),
+&"explode": SubResource("Animation_yevqt")
+}
 
 [node name="StarTemplate" type="RigidBody3D" unique_id=679551123 groups=["Gravity Objects"]]
 mass = 100000.0
 script = ExtResource("1_odifk")
-spdCurve = SubResource("Curve_k8aup")
+planet_temp = ExtResource("2_k8aup")
 
 [node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=740407140]
 mesh = SubResource("SphereMesh_yevqt")
@@ -36,8 +200,9 @@ mesh = SubResource("SphereMesh_yevqt")
 shape = SubResource("SphereShape3D_k8aup")
 
 [node name="Timer" type="Timer" parent="." unique_id=583920277]
-wait_time = 400.0
+wait_time = 5.0
 one_shot = true
+autostart = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=183410592]
 light_energy = 70000.0
@@ -46,16 +211,15 @@ light_volumetric_fog_energy = 16.0
 omni_range = 1000.0
 omni_attenuation = 2.0
 
-[node name="Planet" parent="." unique_id=891116493 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_k8aup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -209.65707)
-currSystem = NodePath(".")
-
 [node name="starColl" type="CollisionShape3D" parent="." unique_id=849405545]
 shape = SubResource("SphereShape3D_yevqt")
 
-[node name="Timer2" type="Timer" parent="." unique_id=84032927]
-wait_time = 2.0
-one_shot = true
+[node name="ExplosionPlayer" type="AnimationPlayer" parent="." unique_id=1512074877]
+libraries/ = SubResource("AnimationLibrary_nsyqr")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1830725822]
+transform = Transform3D(0.9260485, 0, 0.3774044, 0, 1, 0, -0.3774044, 0, 0.9260485, 636.574, -3.0517578e-05, 305.75842)
 
 [connection signal="body_entered" from="SunKillBox" to="." method="_on_sun_kill_box_body_entered"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_changed" from="ExplosionPlayer" to="." method="_on_explosion_player_animation_changed"]

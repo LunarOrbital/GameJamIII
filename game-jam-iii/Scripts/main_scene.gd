@@ -8,10 +8,10 @@ var numStars : int
 func _ready() -> void:
 	numStars = randi_range(4, 10)
 	Engine.time_scale = 1
-	for i in range(numStars):
-		var newStar : RigidBody3D = packed_star.instantiate()
-		newStar.position = Vector3(randi_range(-1000,1000),randi_range(-1000,1000),randi_range(0,10000))
-		print(newStar.position)
+	#for i in range(numStars):
+	#	var newStar : RigidBody3D = packed_star.instantiate()
+		#newStar.position = Vector3(randi_range(-1000,1000),randi_range(-1000,1000),randi_range(0,10000))
+
 # Called every frame. 'lta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#begin gravity code

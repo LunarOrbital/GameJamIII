@@ -30,7 +30,7 @@ packed_star = ExtResource("3_jv6wh")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=882848165]
 environment = SubResource("Environment_iacmt")
 
-[node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
+[node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") groups=["Gravity Objects"] instance=ExtResource("2_6l7je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 171.08543)
 gravity_scale = 0.0
 currSystem = NodePath("../StarTemplate")
@@ -44,9 +44,3 @@ shape = SubResource("CapsuleShape3D_x6ack")
 [node name="testCam" type="Camera3D" parent="." unique_id=679917169]
 transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0.011484027, -4.4210488e-08, 0.9999341, -0.9999341, 4.3206523e-08, 0.011484027, 0, 493.90466, 0)
 current = true
-
-[node name="StarTemplate2" parent="." unique_id=2094625230 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3018.9854)
-
-[node name="StarTemplate3" parent="." unique_id=1269961413 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8804.03)
