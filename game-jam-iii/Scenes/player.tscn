@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cnsbd85ts0rgr" path="res://Scripts/player.gd" id="1_v0iea"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cvnsp"]
+radius = 0.2
+height = 0.7
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v0iea"]
+height = 0.6508789
+radius = 0.21435547
 
 [node name="Player" type="RigidBody3D" unique_id=1835510441]
 mass = 10.0
@@ -14,10 +18,11 @@ script = ExtResource("1_v0iea")
 mesh = SubResource("CapsuleMesh_cvnsp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=237602112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0017089844, 0)
 shape = SubResource("CylinderShape3D_v0iea")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1866059299]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0877148, 0.06628454)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4021224, -0.030352041)
 current = true
 fov = 100.0
 far = 99999.0

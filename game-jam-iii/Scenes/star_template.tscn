@@ -14,7 +14,7 @@ radius = 100.0
 height = 200.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
-radius = 117.564
+radius = 107.16649
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
 radius = 2.809312

@@ -12,17 +12,18 @@ var numPlanets : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start(randi_range(1,40))
-	for i in range(randi_range(1,3)):
-		make_planet()
-		print(i)
+	make_planet()
 func make_planet() -> void:
-	var newPlanet : RigidBody3D = planet_temp.instantiate()
-	add_child(newPlanet)
-	newPlanet.position = Vector3( randi_range(4,8)*50, 0.0, 0.0)
-	newPlanet.mass *= randf_range(.8,1.2)
-	var spd = sqrt((60*mass)/newPlanet.position.x)/5.64
-	newPlanet.linear_velocity = Vector3(0,0,spd)
-	newPlanet.scale*=Vector3(randf_range(-.8,1.2),randf_range(-.8,1.2),randf_range(-.8,1.2))
+	for i in range(1,randi_range(2,4)):
+		var newPlanet : RigidBody3D = planet_temp.instantiate()
+		add_child(newPlanet)
+		newPlanet.position = Vector3((i*100)+randi_range(-50,50)+100, 0.0, 0.0)
+		newPlanet.mass *= randf_range(.8,1.2)
+		var spd = sqrt((60*mass)/newPlanet.position.x)/5.64
+		newPlanet.linear_velocity = Vector3(0,0,spd)
+		var rf = randf_range(-.8,1.2)
+		newPlanet.scale*=Vector3(rf,rf,rf)
+		print(i)
 	
 func _on_sun_kill_box_body_entered(body: Node3D) -> void:
 	if (body is player):
