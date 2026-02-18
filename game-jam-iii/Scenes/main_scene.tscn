@@ -19,34 +19,27 @@ sky = SubResource("Sky_x6ack")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x6ack"]
-radius = 1000.0
-height = 10000.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_jv6wh"]
+size = Vector3(2000, 2000, 10000)
 
 [node name="Main_Scene" type="Area3D" unique_id=418058434]
 script = ExtResource("1_52fb6")
+G = null
 packed_star = ExtResource("3_jv6wh")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=882848165]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=960566705]
 environment = SubResource("Environment_iacmt")
 
 [node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") groups=["Gravity Objects"] instance=ExtResource("2_6l7je")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 385.04202)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3987.572)
 gravity_scale = 0.0
-currSystem = NodePath("../StarTemplate")
+currSystem = NodePath("../BeginStar")
 
-[node name="GalaxyColl" type="CollisionShape3D" parent="." unique_id=1232730275]
-transform = Transform3D(1.11, 0, 0, 0, -4.851964e-08, -1.11, 0, 1.11, -4.851964e-08, 0, -2.2885211e-05, 4195.7676)
-shape = SubResource("CapsuleShape3D_x6ack")
+[node name="BeginStar" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4085.7375)
 
-[node name="StarTemplate" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
+[node name="EndStar" parent="." unique_id=1905952002 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4254.3936)
 
-[node name="StarTemplate2" parent="." unique_id=593999084 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157.5528, 349.06122, 1628.3776)
-
-[node name="StarTemplate3" parent="." unique_id=1609071822 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -336.34445, -150.47308, 3332.484)
-
-[node name="testCam" type="Camera3D" parent="." unique_id=679917169]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0.011484027, -4.4210488e-08, 0.9999341, -0.9999341, 4.3206523e-08, 0.011484027, 0, 493.90466, 0)
-current = true
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1598888668]
+shape = SubResource("BoxShape3D_jv6wh")

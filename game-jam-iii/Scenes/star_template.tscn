@@ -13,11 +13,8 @@ material = SubResource("StandardMaterial3D_k8aup")
 radius = 100.0
 height = 200.0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_k8aup"]
-radius = 107.16649
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
-radius = 2.809312
+radius = 105.16094
 
 [sub_resource type="Animation" id="Animation_k8aup"]
 length = 0.001
@@ -188,16 +185,13 @@ _data = {
 
 [node name="StarTemplate" type="RigidBody3D" unique_id=679551123 groups=["Gravity Objects"]]
 mass = 100000.0
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_odifk")
 planet_temp = ExtResource("2_k8aup")
 
 [node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=740407140]
 mesh = SubResource("SphereMesh_yevqt")
-
-[node name="SunKillBox" type="Area3D" parent="." unique_id=1258943848]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SunKillBox" unique_id=1996056202]
-shape = SubResource("SphereShape3D_k8aup")
 
 [node name="Timer" type="Timer" parent="." unique_id=583920277]
 wait_time = 5.0
@@ -217,9 +211,6 @@ shape = SubResource("SphereShape3D_yevqt")
 [node name="ExplosionPlayer" type="AnimationPlayer" parent="." unique_id=1512074877]
 libraries/ = SubResource("AnimationLibrary_nsyqr")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1830725822]
-transform = Transform3D(0.9260485, 0, 0.3774044, 0, 1, 0, -0.3774044, 0, 0.9260485, 636.574, -3.0517578e-05, 305.75842)
-
-[connection signal="body_entered" from="SunKillBox" to="." method="_on_sun_kill_box_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_changed" from="ExplosionPlayer" to="." method="_on_explosion_player_animation_changed"]

@@ -5,7 +5,6 @@ class_name Star
 @onready var star_mesh_temp_: MeshInstance3D = $"StarMesh(Temp)"
 @onready var star_coll: CollisionShape3D = $starColl
 @export var planet_temp : PackedScene 
-@onready var sun_kill_box: Area3D = $SunKillBox
 @onready var explosion_player: AnimationPlayer = $ExplosionPlayer
 
 var numPlanets : int
@@ -13,6 +12,10 @@ var numPlanets : int
 func _ready() -> void:
 	timer.start(randi_range(1,40))
 	make_planet()
+	
+func _process(delta: float) -> void:
+	star_coll.scale = star_mesh_temp_.scale
+	
 func make_planet() -> void:
 	for i in range(1,randi_range(2,4)):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
@@ -24,14 +27,6 @@ func make_planet() -> void:
 		var rf = randf_range(-.8,1.2)
 		newPlanet.scale*=Vector3(rf,rf,rf)
 		print(i)
-	
-func _on_sun_kill_box_body_entered(body: Node3D) -> void:
-	if (body is player):
-		print("you burned up and died")
-		get_tree().quit()
-	elif (body != self):
-		print(body)
-		body.queue_free()
 
 func _on_timer_timeout() -> void:
 	explosion_player.play("explode")
@@ -39,3 +34,12 @@ func _on_timer_timeout() -> void:
 func _on_explosion_player_animation_changed(_old_name: StringName, _new_name: StringName) -> void:
 	print("exploded")
 	queue_free()
+
+
+func _on_body_entered(body: Node) -> void:
+	if (body is player):
+		print("you burned up and died")
+		get_tree().quit()
+	elif (body != self):
+		print(body)
+		body.queue_free()
