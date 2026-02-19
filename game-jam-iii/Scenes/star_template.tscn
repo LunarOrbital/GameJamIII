@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmpuksus8l7ko" path="res://Scripts/star_template.gd" id="1_odifk"]
 [ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="2_k8aup"]
+[ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://addons/naejimer_3d_planet_generator/scenes/star.tscn" id="3_yevqt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8aup"]
 albedo_color = Color(18.892157, 18.892157, 0, 1)
@@ -192,6 +193,9 @@ planet_temp = ExtResource("2_k8aup")
 
 [node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=740407140]
 mesh = SubResource("SphereMesh_yevqt")
+
+[node name="Star" parent="StarMesh(Temp)" unique_id=1869257690 instance=ExtResource("3_yevqt")]
+transform = Transform3D(-196.05588, 0, -44.30681, 0, 201, 0, 44.30681, 0, -196.05588, 0, 0, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=583920277]
 wait_time = 5.0

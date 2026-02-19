@@ -11,7 +11,7 @@ func _ready() -> void:
 		var newStar : RigidBody3D = packed_star.instantiate()
 		add_child(newStar)
 		newStar.position = Vector3(randi_range(-1000,1000),randi_range(-1000,1000),randi_range(-5000,5000))
-
+		newStar.rotation = Vector3(randi_range(0,360),randi_range(0,360),randi_range(0,360))
 # Called every frame. 'lta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#begin gravity code
@@ -26,17 +26,22 @@ func _process(delta: float) -> void:
 				else:
 					smallObj = obj2
 					largeObj = obj1
+				#if (largeObj is Star):
+				#	if (smallObj is Planet):
+					#	if (smallObj.currSystem == largeObj):
 				var dist = smallObj.global_position.distance_squared_to(largeObj.global_position)
 				var force = G * (((smallObj.mass * largeObj.mass))/dist)
 				var angle = smallObj.global_position.direction_to(largeObj.global_position)
 				smallObj.apply_central_force(force * delta * angle)
-
+					#elif (smallObj is player):
+						#var dist = smallObj.global_position.distance_squared_to(largeObj.global_position)
+						#var force = G * (((smallObj.mass * largeObj.mass))/dist)
+						#var angle = smallObj.global_position.direction_to(largeObj.global_position)
+						#smallObj.apply_central_force(force * delta * angle)
+						
 	if (Input.is_action_just_pressed("reset")):
 		print("EO1:Reset")
 		get_tree().reload_current_scene()
 	if (Input.is_action_just_pressed("quit")):
 		print("EO2:Quit")
 		get_tree().quit()
-	if (Input.is_action_just_pressed("switchCam")):
-		print("EO3:ChangeCam")
-		test_cam.current = !test_cam.current

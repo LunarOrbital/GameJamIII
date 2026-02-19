@@ -13,7 +13,7 @@ func _ready() -> void:
 	timer.start(randi_range(1,40))
 	make_planet()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	star_coll.scale = star_mesh_temp_.scale
 	
 func make_planet() -> void:

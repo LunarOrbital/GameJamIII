@@ -24,10 +24,9 @@ size = Vector3(2000, 2000, 10000)
 
 [node name="Main_Scene" type="Area3D" unique_id=418058434]
 script = ExtResource("1_52fb6")
-G = null
 packed_star = ExtResource("3_jv6wh")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=960566705]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=330603855]
 environment = SubResource("Environment_iacmt")
 
 [node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") groups=["Gravity Objects"] instance=ExtResource("2_6l7je")]
