@@ -2,181 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cmpuksus8l7ko" path="res://Scripts/star_template.gd" id="1_odifk"]
 [ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="2_k8aup"]
-[ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://addons/naejimer_3d_planet_generator/scenes/star.tscn" id="3_yevqt"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8aup"]
-albedo_color = Color(18.892157, 18.892157, 0, 1)
-metallic = 1.0
-metallic_specular = 1.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_yevqt"]
-material = SubResource("StandardMaterial3D_k8aup")
-radius = 100.0
-height = 200.0
+[ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/star.tscn" id="3_yevqt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
 radius = 105.16094
 
 [sub_resource type="Animation" id="Animation_k8aup"]
 length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StarMesh(Temp):scale:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("StarMesh(Temp):scale:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("StarMesh(Temp):scale:z")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 
 [sub_resource type="Animation" id="Animation_yevqt"]
 resource_name = "explode"
 length = 180.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
-"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0, 18.892157, -26.666668, 0, 0, 0, 0, -0.7519989, 3.1486928, 0, 0, 0, -2.5813346, 0, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
-"points": PackedFloat32Array(18.892157, -0.25, 0, 0.25, 0, 0, -26.666668, 3.148693, 0, 0, 5.2993636, -0.7519989, -0.8832273, 0, 0, 5.2993636, -2.5813346, 0, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -26.666668, 0, 0, 0, 18.892157, -0.7519989, -3.1486928, 0, 0, 18.892157, -2.5813346, 0, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("StarMesh(Temp):mesh:material:albedo_color:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -26.666668, 0, 0, 0, 1, -0.7519989, 0, 0, 0, 0, -2.5813346, 0.16666669, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StarMesh(Temp):scale:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -26.666668, -0.6666667, 0, 0, 0.2, -0.7519989, 0.8, 0, 0, 10, -15.35202, 9, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("StarMesh(Temp):scale:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -26.666668, -0.6666667, 0, 0, 0.2, -0.7519989, 0.8, 0, 0, 10, -15.552017, 10, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("StarMesh(Temp):scale:z")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 5, -26.666668, -0.6666667, 0, 0, 0.2, -0.7519989, 0.8, 0, 0, 10, -15.368973, 9, 0, 0),
-"times": PackedFloat32Array(0, 160, 164.512, 180)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nsyqr"]
 _data = {
@@ -191,11 +27,8 @@ max_contacts_reported = 5
 script = ExtResource("1_odifk")
 planet_temp = ExtResource("2_k8aup")
 
-[node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=740407140]
-mesh = SubResource("SphereMesh_yevqt")
-
-[node name="Star" parent="StarMesh(Temp)" unique_id=1869257690 instance=ExtResource("3_yevqt")]
-transform = Transform3D(-196.05588, 0, -44.30681, 0, 201, 0, 44.30681, 0, -196.05588, 0, 0, 0)
+[node name="Star" parent="." unique_id=1869257690 instance=ExtResource("3_yevqt")]
+transform = Transform3D(-191.98589, 0, 59.518238, 0, 201, 0, -59.518238, 0, -191.98589, 0, 0, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=583920277]
 wait_time = 5.0

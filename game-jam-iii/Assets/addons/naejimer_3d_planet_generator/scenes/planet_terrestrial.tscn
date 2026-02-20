@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://yo6lqoksa53k"]
 
-[ext_resource type="Shader" uid="uid://bqo6nes7hkqd1" path="res://addons/naejimer_3d_planet_generator/shaders/clouds.gdshader" id="1_gtd8t"]
-[ext_resource type="Texture2D" uid="uid://b4nta4b1auodv" path="res://addons/naejimer_3d_planet_generator/noises/planet_terrestrial.tres" id="2_maa8i"]
-[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_jpfjm"]
-[ext_resource type="Shader" uid="uid://b8er654l8cu2y" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_dqmhf"]
+[ext_resource type="Shader" uid="uid://bqo6nes7hkqd1" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/clouds.gdshader" id="1_gtd8t"]
+[ext_resource type="Texture2D" uid="uid://b4nta4b1auodv" path="res://Assets/addons/naejimer_3d_planet_generator/noises/planet_terrestrial.tres" id="2_maa8i"]
+[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_jpfjm"]
+[ext_resource type="Shader" uid="uid://b8er654l8cu2y" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_dqmhf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c8avg"]
 render_priority = 0

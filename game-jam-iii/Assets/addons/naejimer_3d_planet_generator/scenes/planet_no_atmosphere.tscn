@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tnvbntvduo2b"]
 
-[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_44m2i"]
-[ext_resource type="Texture2D" uid="uid://bq33q81jxrx46" path="res://addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres" id="2_36jis"]
+[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_44m2i"]
+[ext_resource type="Texture2D" uid="uid://bq33q81jxrx46" path="res://Assets/addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres" id="2_36jis"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l4rno"]
 render_priority = 0

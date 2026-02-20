@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://biy37ccrqck53"]
 
-[ext_resource type="Shader" uid="uid://bqo6nes7hkqd1" path="res://addons/naejimer_3d_planet_generator/shaders/clouds.gdshader" id="1_nrj4t"]
-[ext_resource type="Texture2D" uid="uid://dubbc0h804fot" path="res://addons/naejimer_3d_planet_generator/noises/planet_ice.tres" id="2_83j0s"]
-[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_twxga"]
-[ext_resource type="Shader" uid="uid://b8er654l8cu2y" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_t8w63"]
+[ext_resource type="Shader" uid="uid://bqo6nes7hkqd1" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/clouds.gdshader" id="1_nrj4t"]
+[ext_resource type="Texture2D" uid="uid://dubbc0h804fot" path="res://Assets/addons/naejimer_3d_planet_generator/noises/planet_ice.tres" id="2_83j0s"]
+[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_twxga"]
+[ext_resource type="Shader" uid="uid://b8er654l8cu2y" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_t8w63"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xtehg"]
 render_priority = 0
@@ -88,7 +88,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetIce" type="MeshInstance3D" unique_id=566456659]
-transform = Transform3D(0.8435356, 0, 0.53707325, 0, 1, 0, -0.53707325, 0, 0.8435356, 0, 0, 0)
+transform = Transform3D(2.9672182, 0, 9.54964, 0, 10, 0, -9.54964, 0, 2.9672182, 0, 0, 0)
 mesh = SubResource("SphereMesh_5tvr0")
 skeleton = NodePath(".")
 

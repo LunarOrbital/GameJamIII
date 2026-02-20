@@ -3,15 +3,13 @@
 [ext_resource type="Script" uid="uid://bsc5igufa2f64" path="res://Scripts/main_scene.gd" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://cgjnximtcyxhj" path="res://Scenes/player.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://htdttq03eg5r" path="res://Scenes/star_template.tscn" id="3_jv6wh"]
+[ext_resource type="Texture2D" uid="uid://cg672onmwausg" path="res://Assets/finally.png" id="3_x6ack"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jv6wh"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.074585825, 0.070393056, 0.06567428, 1)
-ground_bottom_color = Color(0.08005991, 0.063288815, 0.044413716, 1)
-ground_horizon_color = Color(0.074585825, 0.070393056, 0.06567428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iacmt"]
+panorama = ExtResource("3_x6ack")
 
 [sub_resource type="Sky" id="Sky_x6ack"]
-sky_material = SubResource("ProceduralSkyMaterial_jv6wh")
+sky_material = SubResource("PanoramaSkyMaterial_iacmt")
 
 [sub_resource type="Environment" id="Environment_iacmt"]
 background_mode = 2
@@ -29,16 +27,18 @@ packed_star = ExtResource("3_jv6wh")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=330603855]
 environment = SubResource("Environment_iacmt")
 
-[node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") groups=["Gravity Objects"] instance=ExtResource("2_6l7je")]
+[node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3987.572)
 gravity_scale = 0.0
 currSystem = NodePath("../BeginStar")
 
 [node name="BeginStar" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4085.7375)
+starCheck = "start"
 
 [node name="EndStar" parent="." unique_id=1905952002 instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4254.3936)
+starCheck = "end"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1598888668]
 shape = SubResource("BoxShape3D_jv6wh")

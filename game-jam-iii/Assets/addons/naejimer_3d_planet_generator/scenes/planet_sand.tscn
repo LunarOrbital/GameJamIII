@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dbexddi1rwbt4"]
 
-[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_xf64t"]
-[ext_resource type="Texture2D" uid="uid://6maxob4srf50" path="res://addons/naejimer_3d_planet_generator/noises/planet_sand.tres" id="2_lpkdi"]
-[ext_resource type="Shader" uid="uid://b8er654l8cu2y" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="3_gd12t"]
+[ext_resource type="Shader" uid="uid://bdqcs7jd3rwqt" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_xf64t"]
+[ext_resource type="Texture2D" uid="uid://6maxob4srf50" path="res://Assets/addons/naejimer_3d_planet_generator/noises/planet_sand.tres" id="2_lpkdi"]
+[ext_resource type="Shader" uid="uid://b8er654l8cu2y" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="3_gd12t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cr8r6"]
 render_priority = 0

@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://biapg77r6k5qk"]
 
 [ext_resource type="Script" uid="uid://ca7ahay81tcx2" path="res://Scripts/planet.gd" id="1_vpe2g"]
-[ext_resource type="PackedScene" uid="uid://biy37ccrqck53" path="res://addons/naejimer_3d_planet_generator/scenes/planet_ice.tscn" id="2_w18ph"]
-[ext_resource type="PackedScene" uid="uid://c1ml4yvlgnbbv" path="res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="3_hjx7e"]
-[ext_resource type="PackedScene" uid="uid://dneumird5vcjw" path="res://addons/naejimer_3d_planet_generator/scenes/planet_lava.tscn" id="4_1ny3n"]
-[ext_resource type="PackedScene" uid="uid://tnvbntvduo2b" path="res://addons/naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="5_y21ow"]
-[ext_resource type="PackedScene" uid="uid://dbexddi1rwbt4" path="res://addons/naejimer_3d_planet_generator/scenes/planet_sand.tscn" id="6_s6pwb"]
-[ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://addons/naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="7_enl6s"]
+[ext_resource type="PackedScene" uid="uid://biy37ccrqck53" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_ice.tscn" id="2_w18ph"]
+[ext_resource type="PackedScene" uid="uid://c1ml4yvlgnbbv" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="3_hjx7e"]
+[ext_resource type="PackedScene" uid="uid://dneumird5vcjw" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_lava.tscn" id="4_1ny3n"]
+[ext_resource type="PackedScene" uid="uid://tnvbntvduo2b" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="5_y21ow"]
+[ext_resource type="PackedScene" uid="uid://dbexddi1rwbt4" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_sand.tscn" id="6_s6pwb"]
+[ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="7_enl6s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ytj11"]
-radius = 10.0
 
 [node name="Planet" type="RigidBody3D" unique_id=891116493 groups=["Gravity Objects"]]
 mass = 1000.0
