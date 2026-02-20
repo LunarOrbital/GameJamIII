@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	star_coll.scale = star.scale
-	
+
 func make_planet() -> void:
 	for i in range(1,randi_range(2,4)):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
