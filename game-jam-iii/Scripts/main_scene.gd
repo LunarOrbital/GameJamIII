@@ -5,7 +5,7 @@ var numStars : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numStars = randi_range(4, 10)
+	numStars = randi_range(3, 6)
 	Engine.time_scale = 1
 	for i in range(numStars):
 		var newStar : RigidBody3D = packed_star.instantiate()

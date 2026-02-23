@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://cgjnximtcyxhj"]
 
 [ext_resource type="Script" uid="uid://cnsbd85ts0rgr" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://f71fpgd7reyw" path="res://Assets/addons/Soyuz/mesh3.jpg" id="2_f1ek2"]
+[ext_resource type="ArrayMesh" uid="uid://bqvuu7fgneomv" path="res://Assets/addons/Soyuz/Propulsion Mod.obj" id="3_tx1dd"]
+[ext_resource type="ArrayMesh" uid="uid://byyaldokpkuih" path="res://Assets/addons/Soyuz/Ambilical.obj" id="4_gymyn"]
+[ext_resource type="ArrayMesh" uid="uid://cpmvkl7krwb8e" path="res://Assets/addons/Soyuz/Descent Mod.obj" id="5_pu2lt"]
+[ext_resource type="ArrayMesh" uid="uid://mo83oi81kpph" path="res://Assets/addons/Soyuz/Orbital Mod.obj" id="6_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://o3bio86u5fls" path="res://Assets/addons/Soyuz/Tinfoil.tga" id="7_7dp3o"]
+[ext_resource type="ArrayMesh" uid="uid://d2q4gmcsa63q0" path="res://Assets/addons/Soyuz/Parts1.obj" id="8_h4iuc"]
+[ext_resource type="ArrayMesh" uid="uid://ce8vv2427k80n" path="res://Assets/addons/Soyuz/Solar Panels.obj" id="9_fd4e3"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_cvnsp"]
-radius = 0.2
-height = 0.7
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqcod"]
+albedo_texture = ExtResource("2_f1ek2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igrcy"]
+albedo_color = Color(9.120778e-06, 0.44020808, 0.105705, 1)
+albedo_texture = ExtResource("2_f1ek2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs7ks"]
+albedo_texture = ExtResource("2_f1ek2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6n3p"]
+albedo_texture = ExtResource("7_7dp3o")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v0iea"]
 height = 0.6508789
@@ -15,14 +32,35 @@ mass = 10.0
 script = ExtResource("1_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1992854852]
-mesh = SubResource("CapsuleMesh_cvnsp")
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qqcod")
+mesh = ExtResource("3_tx1dd")
+
+[node name="Ambilical" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1490853490]
+mesh = ExtResource("4_gymyn")
+
+[node name="DescentMod" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1466012254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061999798, 0)
+material_override = SubResource("StandardMaterial3D_igrcy")
+mesh = ExtResource("5_pu2lt")
+
+[node name="OrbitalMod" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1616028780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30654955, 0)
+material_override = SubResource("StandardMaterial3D_fs7ks")
+mesh = ExtResource("6_ukyrk")
+
+[node name="Parts1" type="MeshInstance3D" parent="MeshInstance3D" unique_id=533621022]
+material_override = SubResource("StandardMaterial3D_l6n3p")
+mesh = ExtResource("8_h4iuc")
+
+[node name="SolarPanels" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1541648680]
+mesh = ExtResource("9_fd4e3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=237602112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0017089844, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.919798, 0)
 shape = SubResource("CylinderShape3D_v0iea")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1866059299]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4021224, -0.030352041)
+[node name="3rdCam" type="Camera3D" parent="." unique_id=707469262]
+transform = Transform3D(1, 0, 0, 0, 0.93693477, 0.34950438, 0, -0.34950438, 0.93693477, -1.1920929e-07, 0.628637, 0.07112265)
 current = true
-fov = 100.0
 far = 99999.0

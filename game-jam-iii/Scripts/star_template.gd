@@ -2,9 +2,9 @@ extends RigidBody3D
 class_name Star
 
 @onready var timer: Timer = $Timer
-@onready var star: MeshInstance3D = $Star
-
+@onready var star_mesh_temp_: MeshInstance3D = $"StarMesh(Temp)"
 @onready var star_coll: CollisionShape3D = $starColl
+
 @export var planet_temp : PackedScene 
 @onready var explosion_player: AnimationPlayer = $ExplosionPlayer
 @export var starCheck : String
@@ -15,7 +15,7 @@ func _ready() -> void:
 	make_planet()
 	
 func _process(_delta: float) -> void:
-	star_coll.scale = star.scale
+	star_coll.scale = star_mesh_temp_.scale
 
 func make_planet() -> void:
 	for i in range(1,randi_range(2,4)):
@@ -27,7 +27,6 @@ func make_planet() -> void:
 		newPlanet.linear_velocity = Vector3(0,0,spd)
 		var rf = randf_range(-.8,1.2)
 		newPlanet.scale*=Vector3(rf,rf,rf)
-		print(i)
 
 func _on_timer_timeout() -> void:
 	explosion_player.play("explode")
