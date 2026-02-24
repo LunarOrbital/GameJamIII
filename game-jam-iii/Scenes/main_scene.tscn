@@ -28,16 +28,16 @@ packed_star = ExtResource("3_jv6wh")
 environment = SubResource("Environment_iacmt")
 
 [node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3987.572)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -6170.825)
 gravity_scale = 0.0
 currSystem = NodePath("../BeginStar")
 
 [node name="BeginStar" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4085.7375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5582.9697)
 starCheck = "start"
 
 [node name="EndStar" parent="." unique_id=1905952002 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4254.3936)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5718.0815)
 starCheck = "end"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1598888668]

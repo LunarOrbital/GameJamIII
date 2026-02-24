@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://2oyoc6a8af8v" path="res://Scripts/start_screen.gd" id="1_i8r30"]
 [ext_resource type="PackedScene" uid="uid://lly21y7jwda8" path="res://Scenes/main_scene.tscn" id="2_ainjc"]
+[ext_resource type="FontFile" uid="uid://dk4jb8bhj7ic7" path="res://Assets/Orbitron-VariableFont_wght.ttf" id="3_5e717"]
+[ext_resource type="Texture2D" uid="uid://cg672onmwausg" path="res://Assets/finally.png" id="4_mtlf8"]
 
 [node name="StartScreen" type="Control" unique_id=789131218]
 layout_mode = 3
@@ -13,53 +15,66 @@ grow_vertical = 2
 script = ExtResource("1_i8r30")
 main = ExtResource("2_ainjc")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1005067876]
+z_index = -7
+layout_mode = 0
+offset_left = -162.0
+offset_top = -75.0
+offset_right = 1438.0
+offset_bottom = 725.0
+texture = ExtResource("4_mtlf8")
+
 [node name="MainMenu" type="Panel" parent="." unique_id=1656209276]
+modulate = Color(0.47196072, 0.86183965, 1, 1)
 layout_mode = 0
 offset_left = 56.0
 offset_top = 40.0
-offset_right = 317.14706
-offset_bottom = 182.7019
+offset_right = 316.37292
+offset_bottom = 184.76631
 scale = Vector2(3.8752108, 3.8752108)
 
 [node name="StartButton" type="Button" parent="MainMenu" unique_id=1214742470]
 layout_mode = 0
-offset_left = 109.413414
-offset_top = 65.80287
-offset_right = 279.41342
-offset_bottom = 156.80287
-scale = Vector2(0.48629606, 0.49303585)
-theme_override_font_sizes/font_size = 50
-text = "Begin Flight"
+offset_left = 148.37903
+offset_top = 57.029156
+offset_right = 472.47797
+offset_bottom = 227.02916
+scale = Vector2(0.34555465, 0.49918824)
+theme_override_fonts/font = ExtResource("3_5e717")
+theme_override_font_sizes/font_size = 64
+text = "Begin 
+Flight"
 
 [node name="EndGame" type="Button" parent="MainMenu" unique_id=27774964]
 layout_mode = 0
-offset_left = 109.15536
-offset_top = 110.187546
-offset_right = 237.15536
+offset_top = 110.18755
+offset_right = 128.0
 offset_bottom = 201.87753
 scale = Vector2(0.4889578, 0.37401882)
+theme_override_fonts/font = ExtResource("3_5e717")
 theme_override_font_sizes/font_size = 32
 text = "Give Up"
 
 [node name="Credits" type="Button" parent="MainMenu" unique_id=742215846]
 layout_mode = 0
-offset_left = 172.37772
-offset_top = 110.187546
-offset_right = 300.37772
-offset_bottom = 208.18755
-scale = Vector2(0.62208945, 0.3534859)
-theme_override_font_sizes/font_size = 32
-text = "Play
- Credits"
+offset_left = 71.221924
+offset_top = 110.96171
+offset_right = 271.22192
+offset_bottom = 208.9617
+scale = Vector2(0.3804638, 0.334868)
+theme_override_fonts/font = ExtResource("3_5e717")
+theme_override_font_sizes/font_size = 48
+text = "Credits"
 
-[node name="Label" type="Label" parent="MainMenu" unique_id=1453390612]
+[node name="Title" type="Label" parent="MainMenu" unique_id=1453390612]
 layout_mode = 0
-offset_right = 779.0
-offset_bottom = 248.67664
+offset_right = 731.8536
+offset_bottom = 320.14902
 scale = Vector2(0.43686956, 0.43686956)
-theme_override_font_sizes/font_size = 105
+theme_override_fonts/font = ExtResource("3_5e717")
+theme_override_font_sizes/font_size = 100
 text = "The Space 
-Race"
+Race!"
 
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/EndGame" to="." method="_on_end_game_pressed"]

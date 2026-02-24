@@ -36,7 +36,3 @@ func _ready() -> void:
 	var scale2 = Vector3(mass/20,mass/20,mass/20)
 	newerText.scale = scale2
 	planet_coll.scale = scale2
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass

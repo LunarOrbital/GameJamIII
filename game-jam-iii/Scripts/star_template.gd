@@ -18,12 +18,12 @@ func _process(_delta: float) -> void:
 	star_coll.scale = star_mesh_temp_.scale
 
 func make_planet() -> void:
-	for i in range(1,randi_range(2,4)):
+	for i in range(1,randi_range(3,6)):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
 		add_child(newPlanet)
-		newPlanet.position = Vector3((i*100)+randi_range(-50,50)+100, 0.0, 0.0)
+		newPlanet.position = Vector3((i*140)+randi_range(-50,50)+100, 0.0, 0.0)
 		newPlanet.mass *= randf_range(.8,1.2)
-		var spd = sqrt((60*mass)/newPlanet.position.x)/5.64
+		var spd = sqrt((600*mass)/newPlanet.position.x)/5.64
 		newPlanet.linear_velocity = Vector3(0,0,spd)
 		var rf = randf_range(-.8,1.2)
 		newPlanet.scale*=Vector3(rf,rf,rf)

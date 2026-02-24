@@ -6,14 +6,22 @@ var thrust := 30000
 var isp = .1
 var SASSens := 400
 @export var currSystem : RigidBody3D
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-var cam := 0
+@onready var rvs_cam: Camera3D = $rvsCam
+@onready var _3_rd_cam: Camera3D = $"3rdCam"
+var closest := 99999999.9
+var closestObj : RigidBody3D 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	for obj in get_tree().get_nodes_in_group("Gravity Objects"):
+		var newDist = global_position.distance_to(obj.global_position)
+		if (newDist < closest):
+			closest = newDist
+			closestObj = obj
+	print(global_position.distance_to(closestObj.global_position))
+		
+	if (Input.is_action_just_pressed("switchCam")):
+		_3_rd_cam.current = !_3_rd_cam.current
 	if (fuel >= 0):
 		if (Input.is_action_pressed("Forward")):
 			apply_central_force(-global_basis.z * thrust * delta)

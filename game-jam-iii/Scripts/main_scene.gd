@@ -1,6 +1,6 @@
 extends Node3D
 var numStars : int
-@export var G := 60
+@export var G := 600
 @export var packed_star : PackedScene 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +10,7 @@ func _ready() -> void:
 	for i in range(numStars):
 		var newStar : RigidBody3D = packed_star.instantiate()
 		add_child(newStar)
-		newStar.position = Vector3(randi_range(-1000,1000),randi_range(-1000,1000),randi_range(-5000,5000))
+		newStar.position = Vector3(randi_range(-1200,1200),randi_range(-1200,1200),randi_range(-5000,5000))
 		newStar.rotation = Vector3(randi_range(0,360),randi_range(0,360),randi_range(0,360))
 # Called every frame. 'lta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
