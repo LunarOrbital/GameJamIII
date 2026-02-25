@@ -8,10 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://dbexddi1rwbt4" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_sand.tscn" id="6_s6pwb"]
 [ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://Assets/addons/naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="7_enl6s"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kmany"]
+absorbent = true
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_ytj11"]
 
 [node name="Planet" type="RigidBody3D" unique_id=891116493 groups=["Gravity Objects"]]
 mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_kmany")
+contact_monitor = true
+max_contacts_reported = 4
 script = ExtResource("1_vpe2g")
 iceTexture = ExtResource("2_w18ph")
 gasTexture = ExtResource("3_hjx7e")
@@ -22,3 +28,6 @@ earthTexture = ExtResource("7_enl6s")
 
 [node name="PlanetColl" type="CollisionShape3D" parent="." unique_id=859253415]
 shape = SubResource("SphereShape3D_ytj11")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

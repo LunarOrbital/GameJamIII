@@ -1,6 +1,6 @@
 extends RigidBody3D
 class_name player
-@export var fuel := 1000.0
+@export var fuel := 200.0
 var currentSystem : RigidBody3D
 var thrust := 30000
 var isp = .1
@@ -10,7 +10,10 @@ var SASSens := 400
 @onready var _3_rd_cam: Camera3D = $"3rdCam"
 var closest := 99999999.9
 var closestObj : RigidBody3D 
-
+@onready var player_ui: Control = $PlayerUI
+var o2 := 100.0
+var landed : bool = false
+var landedAlt : float
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for obj in get_tree().get_nodes_in_group("Gravity Objects"):
@@ -18,8 +21,16 @@ func _process(delta: float) -> void:
 		if (newDist < closest):
 			closest = newDist
 			closestObj = obj
-	print(global_position.distance_to(closestObj.global_position))
-		
+	if !(landed):
+		o2 -=.1
+	else:
+		if (o2 < 100):
+			o2 += .5
+		if (fuel < 100):
+			fuel += 1
+	player_ui.update_values(o2,fuel)
+	
+	
 	if (Input.is_action_just_pressed("switchCam")):
 		_3_rd_cam.current = !_3_rd_cam.current
 	if (fuel >= 0):

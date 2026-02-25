@@ -22,10 +22,10 @@ func make_planet() -> void:
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
 		add_child(newPlanet)
 		newPlanet.position = Vector3((i*140)+randi_range(-50,50)+100, 0.0, 0.0)
-		newPlanet.mass *= randf_range(.8,1.2)
+		newPlanet.mass *= randf_range(.8,2.5)
 		var spd = sqrt((600*mass)/newPlanet.position.x)/5.64
 		newPlanet.linear_velocity = Vector3(0,0,spd)
-		var rf = randf_range(-.8,1.2)
+		var rf = randf_range(-.8,2.5)
 		newPlanet.scale*=Vector3(rf,rf,rf)
 
 func _on_timer_timeout() -> void:

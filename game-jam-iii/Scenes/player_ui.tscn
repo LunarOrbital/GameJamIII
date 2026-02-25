@@ -19,58 +19,58 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vi3dy")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=438403724]
+[node name="HUD" type="Polygon2D" parent="." unique_id=438403724]
 color = Color(0.26584637, 0.26584637, 0.26584637, 1)
 polygon = PackedVector2Array(-1, 273, 98, 371, 98, 544, 256, 544, 315, 649, 0, 649)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Polygon2D" unique_id=1849841680]
+[node name="Polygon2D3" type="Polygon2D" parent="HUD" unique_id=1849841680]
 color = Color(0.4990465, 0.49904615, 0.49904603, 1)
 polygon = PackedVector2Array(113, 560, 122, 550, 235, 550, 243, 558, 243, 635, 237, 643, 120, 643, 113, 634)
 
-[node name="Polygon2D" type="Polygon2D" parent="Polygon2D" unique_id=366379301]
+[node name="Polygon2D" type="Polygon2D" parent="HUD" unique_id=366379301]
 position = Vector2(136, 558)
 color = Color(0.42860928, 0.3207921, 0.17264572, 1)
 polygon = PackedVector2Array(101, 0, 101, 38, -17, 38, -17, 0)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Polygon2D" unique_id=1431365773]
+[node name="Polygon2D2" type="Polygon2D" parent="HUD" unique_id=1431365773]
 position = Vector2(136, 600)
 color = Color(0.42860928, 0.3207921, 0.17264572, 1)
 polygon = PackedVector2Array(101, 0, 101, 38, -17, 38, -17, 0)
 
-[node name="FuelBar" type="TextureProgressBar" parent="Polygon2D" unique_id=40731070]
+[node name="FuelBar" type="TextureProgressBar" parent="HUD" unique_id=40731070]
 offset_left = 39.0
 offset_top = 300.0
 offset_right = 295.0
 offset_bottom = 332.0
 rotation = 1.5707964
 scale = Vector2(1.3407767, 1.0840981)
-value = 39.0
+step = 0.1
 fill_mode = 1
 texture_under = ExtResource("2_jbpjp")
 texture_over = ExtResource("3_uflt7")
 texture_progress = ExtResource("4_jbpjp")
 texture_progress_offset = Vector2(14.48, 8.53)
 
-[node name="O2Bar" type="TextureProgressBar" parent="Polygon2D" unique_id=812099457]
+[node name="O2Bar" type="TextureProgressBar" parent="HUD" unique_id=812099457]
 offset_left = 38.0
 offset_top = 644.0
 offset_right = 294.0
 offset_bottom = 676.0
 rotation = -1.5707964
 scale = Vector2(1.2066729, 1.2261065)
-value = 24.0
+step = 0.1
 texture_under = ExtResource("2_jbpjp")
 texture_over = ExtResource("5_3nrpj")
 texture_progress = ExtResource("6_uflt7")
 
-[node name="DVText" type="Label" parent="Polygon2D" unique_id=1010888330]
+[node name="DVText" type="Label" parent="HUD" unique_id=1010888330]
 offset_left = 138.0
 offset_top = 608.0
 offset_right = 209.0
 offset_bottom = 631.0
 text = "2000 M/S"
 
-[node name="AltText" type="Label" parent="Polygon2D" unique_id=1151621859]
+[node name="AltText" type="Label" parent="HUD" unique_id=1151621859]
 offset_left = 183.0
 offset_top = 566.0
 offset_right = 223.0

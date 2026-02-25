@@ -36,3 +36,23 @@ func _ready() -> void:
 	var scale2 = Vector3(mass/20,mass/20,mass/20)
 	newerText.scale = scale2
 	planet_coll.scale = scale2
+
+func _on_body_entered(body: Node) -> void:
+	if(body is Star):
+		self.queue_free()
+	elif(body is Planet):
+		if (self.mass > body.mass):
+			body.queue_free()
+		else:
+			queue_free()
+	elif(body is player):
+		body.landed = true 
+		body.landedAlt = global_position.distance_to(body.global_position)
+
+	else:
+		print("ERR 03: Unrecongnized body collided:" + str(body))
+
+
+func _on_body_exited(body: Node) -> void:
+	if (body is player):
+		body.landed = false

@@ -12,7 +12,7 @@ func _ready() -> void:
 		add_child(newStar)
 		newStar.position = Vector3(randi_range(-1200,1200),randi_range(-1200,1200),randi_range(-5000,5000))
 		newStar.rotation = Vector3(randi_range(0,360),randi_range(0,360),randi_range(0,360))
-# Called every frame. 'lta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	#begin gravity code
 	for obj1 : RigidBody3D in get_tree().get_nodes_in_group("Gravity Objects"):
