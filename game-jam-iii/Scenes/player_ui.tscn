@@ -71,8 +71,8 @@ offset_bottom = 631.0
 text = "2000 M/S"
 
 [node name="AltText" type="Label" parent="HUD" unique_id=1151621859]
-offset_left = 183.0
+offset_left = 146.0
 offset_top = 566.0
-offset_right = 223.0
+offset_right = 186.0
 offset_bottom = 589.0
 text = "- M"

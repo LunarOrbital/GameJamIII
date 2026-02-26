@@ -1,6 +1,5 @@
 extends RigidBody3D
 class_name Planet
-var resources : int
 @export var iceTexture : PackedScene
 @export var gasTexture : PackedScene 
 @export var lavaTexture : PackedScene 
@@ -13,7 +12,6 @@ var resources : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mass = randi_range(500,1500)
-	resources = randi_range(10, 100)
 	var newText : PackedScene 
 	var i = randi_range(0,2)
 	if mass<1000:

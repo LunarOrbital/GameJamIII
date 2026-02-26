@@ -1,6 +1,6 @@
 extends RigidBody3D
 class_name player
-@export var fuel := 200.0
+@export var fuel := 100.0
 var currentSystem : RigidBody3D
 var thrust := 30000
 var isp = .1
@@ -22,14 +22,18 @@ func _process(delta: float) -> void:
 			closest = newDist
 			closestObj = obj
 	if !(landed):
-		o2 -=.1
+		o2 -=.064
 	else:
 		if (o2 < 100):
 			o2 += .5
 		if (fuel < 100):
 			fuel += 1
-	player_ui.update_values(o2,fuel)
-	
+	if (closestObj != null):
+		var alt = global_position.distance_to(closestObj.global_position)
+		player_ui.update_values(o2,fuel,alt)
+		currSystem = closestObj
+	else:
+		print("E04: closestObj removed at runtime")
 	
 	if (Input.is_action_just_pressed("switchCam")):
 		_3_rd_cam.current = !_3_rd_cam.current

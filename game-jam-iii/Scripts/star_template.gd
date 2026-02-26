@@ -4,7 +4,7 @@ class_name Star
 @onready var timer: Timer = $Timer
 @onready var star_mesh_temp_: MeshInstance3D = $"StarMesh(Temp)"
 @onready var star_coll: CollisionShape3D = $starColl
-
+var currSystem : RigidBody3D
 @export var planet_temp : PackedScene 
 @onready var explosion_player: AnimationPlayer = $ExplosionPlayer
 @export var starCheck : String
@@ -13,21 +13,20 @@ var numPlanets : int
 func _ready() -> void:
 	timer.start(randi_range(1,40))
 	make_planet()
-	
+	Engine.time_scale = 1
 func _process(_delta: float) -> void:
 	star_coll.scale = star_mesh_temp_.scale
 
 func make_planet() -> void:
-	for i in range(1,randi_range(3,6)):
+	for i in range(1,randi_range(3,5)):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
 		add_child(newPlanet)
 		newPlanet.position = Vector3((i*140)+randi_range(-50,50)+100, 0.0, 0.0)
-		newPlanet.mass *= randf_range(.8,2.5)
 		var spd = sqrt((600*mass)/newPlanet.position.x)/5.64
 		newPlanet.linear_velocity = Vector3(0,0,spd)
 		var rf = randf_range(-.8,2.5)
 		newPlanet.scale*=Vector3(rf,rf,rf)
-
+		newPlanet.currSystem = self
 func _on_timer_timeout() -> void:
 	explosion_player.play("explode")
 

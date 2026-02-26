@@ -211,6 +211,9 @@ shape = SubResource("SphereShape3D_yevqt")
 [node name="ExplosionPlayer" type="AnimationPlayer" parent="." unique_id=1512074877]
 libraries/ = SubResource("AnimationLibrary_nsyqr")
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1689729456]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 350.51978, 0)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_changed" from="ExplosionPlayer" to="." method="_on_explosion_player_animation_changed"]

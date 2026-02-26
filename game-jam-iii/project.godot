@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GameJamIII"
+config/name="The Space Race"
 run/main_scene="uid://tknykdbn8xdf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
