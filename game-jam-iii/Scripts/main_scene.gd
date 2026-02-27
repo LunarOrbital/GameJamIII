@@ -2,15 +2,17 @@ extends Node3D
 var numStars : int
 @export var G := 600
 @export var packed_star : PackedScene 
+@onready var player2: player = $Player
+@onready var end_star: Star = $EndStar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numStars = randi_range(4, 7)
+	numStars = randi_range(5, 10)
 	Engine.time_scale = 1
 	for i in range(numStars):
 		var newStar : RigidBody3D = packed_star.instantiate()
 		add_child(newStar)
-		newStar.position = Vector3(randi_range(-1200,1200),randi_range(-1200,1200),randi_range(-5000,5000))
+		newStar.position = Vector3(randi_range(-3000,3000),randi_range(-3000,3000),randi_range(-20000,20000))
 		newStar.rotation = Vector3(randi_range(0,360),randi_range(0,360),randi_range(0,360))
 
 func _physics_process(delta: float) -> void:
@@ -38,7 +40,8 @@ func _physics_process(delta: float) -> void:
 							var force = G * (((smallObj.mass * largeObj.mass))/dist)
 							var angle = smallObj.global_position.direction_to(largeObj.global_position)
 							smallObj.apply_central_force(force * delta * angle)
-						
+	if (player2.global_position.distance_squared_to(end_star.global_position) <1000000):
+		player2.dead = 0
 	if (Input.is_action_just_pressed("reset")):
 		print("EO1:Reset")
 		get_tree().reload_current_scene()

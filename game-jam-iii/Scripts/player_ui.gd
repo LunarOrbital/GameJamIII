@@ -2,9 +2,40 @@ extends Control
 @onready var fuel_bar: TextureProgressBar = $HUD/FuelBar
 @onready var o_2_bar: TextureProgressBar = $HUD/O2Bar
 @onready var alt_text: Label = $HUD/AltText
+@onready var dv_text: Label = $HUD/DVText
+@onready var loss_screen: Panel = $LossScreen
+@onready var label: Label = $LossScreen/Label
+@export var menu : PackedScene
+@onready var instructions: Panel = $Instructions
 
-var alt : float
-func update_values(o2, fuel, alt) -> void:
+func update_values(o2, fuel, alt,spd) -> void:
 	fuel_bar.value = fuel
 	o_2_bar.value = o2
-	alt_text.text = str(int(alt)) + "- M"
+	alt_text.text = str(int(alt)) + " - M"
+	dv_text.text = str(int(spd)) + " M/S"
+
+func display_screen(a : int):
+	if (a == 0):
+		loss_screen.visible = true
+		label.text = "You've reached you final destination and lived! \n You've saved the human race!"
+	elif (a == 1):
+		loss_screen.visible = true
+		label.text = "You've flown directly into the sun and Died!!! \n Such a foolish fate indeed"
+	elif(a == 2):
+		loss_screen.visible = true
+		label.text = "You've run out of oxygen in the void of space. \n if only you could have landed in time..."
+	else:
+		loss_screen.visible = true
+		print("E05")
+	Engine.time_scale = 0
+
+
+func _on_try_again_pressed() -> void:
+	get_tree().reload_current_scene()
+	
+func _on_menu_pressed() -> void:
+	#get_tree().change_scene_to_packed(menu)
+	pass
+
+func _on_close_intro_pressed() -> void:
+	instructions.visible = false

@@ -14,8 +14,9 @@ var closestObj : RigidBody3D
 var o2 := 100.0
 var landed : bool = false
 var landedAlt : float
+var dead := -1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	for obj in get_tree().get_nodes_in_group("Gravity Objects"):
 		var newDist = global_position.distance_to(obj.global_position)
 		if (newDist < closest):
@@ -23,18 +24,23 @@ func _process(delta: float) -> void:
 			closestObj = obj
 	if !(landed):
 		o2 -=.064
+		if (o2 <= 0):
+			dead = 2
 	else:
 		if (o2 < 100):
 			o2 += .5
 		if (fuel < 100):
 			fuel += 1
+	#make more accurate
+	var spd2 = linear_velocity.x + linear_velocity.y + linear_velocity.z
 	if (closestObj != null):
 		var alt = global_position.distance_to(closestObj.global_position)
-		player_ui.update_values(o2,fuel,alt)
+		player_ui.update_values(o2,fuel,alt,spd2)
 		currSystem = closestObj
 	else:
 		print("E04: closestObj removed at runtime")
-	
+	if (dead > -1):
+		player_ui.display_screen(dead)
 	if (Input.is_action_just_pressed("switchCam")):
 		_3_rd_cam.current = !_3_rd_cam.current
 	if (fuel >= 0):

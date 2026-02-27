@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 	star_coll.scale = star_mesh_temp_.scale
 
 func make_planet() -> void:
-	for i in range(1,randi_range(3,5)):
+	for i in range(randi_range(1,5)):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
 		add_child(newPlanet)
 		newPlanet.position = Vector3((i*140)+randi_range(-50,50)+100, 0.0, 0.0)
@@ -36,8 +36,7 @@ func _on_explosion_player_animation_changed(_old_name: StringName, _new_name: St
 
 func _on_body_entered(body: Node) -> void:
 	if (body is player):
-		print("you burned up and died")
-		get_tree().quit()
+		body.dead = 2
 	elif (body != self):
 		if (body is Planet):
 			print(body)
