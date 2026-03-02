@@ -3,7 +3,7 @@ class_name player
 @export var fuel := 100.0
 var currentSystem : RigidBody3D
 var thrust := 30000
-var isp = .1
+var isp = .05
 var SASSens := 400
 @export var currSystem : RigidBody3D
 @onready var rvs_cam: Camera3D = $rvsCam
@@ -23,14 +23,14 @@ func _physics_process(delta: float) -> void:
 			closest = newDist
 			closestObj = obj
 	if !(landed):
-		o2 -=.064
+		o2 -=.064/2
 		if (o2 <= 0):
 			dead = 2
 	else:
 		if (o2 < 100):
-			o2 += .5
+			o2 += .1
 		if (fuel < 100):
-			fuel += 1
+			fuel += 2
 	#make more accurate
 	var spd2 = linear_velocity.x + linear_velocity.y + linear_velocity.z
 	if (closestObj != null):

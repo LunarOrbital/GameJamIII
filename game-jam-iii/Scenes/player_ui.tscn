@@ -143,15 +143,5 @@ offset_bottom = 203.0
 theme_override_font_sizes/font_size = 48
 text = "Try Again"
 
-[node name="Menu" type="Button" parent="LossScreen" unique_id=714743294]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 128.0
-offset_right = 629.0
-offset_bottom = 203.0
-theme_override_font_sizes/font_size = 48
-text = "Return to Menu"
-
 [connection signal="pressed" from="Instructions/closeIntro" to="." method="_on_close_intro_pressed"]
 [connection signal="pressed" from="LossScreen/TryAgain" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="LossScreen/Menu" to="." method="_on_menu_pressed"]
