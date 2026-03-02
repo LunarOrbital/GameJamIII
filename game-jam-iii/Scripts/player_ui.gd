@@ -5,7 +5,7 @@ extends Control
 @onready var dv_text: Label = $HUD/DVText
 @onready var loss_screen: Panel = $LossScreen
 @onready var label: Label = $LossScreen/Label
-@export var menu : PackedScene
+#@export var menu : PackedScene
 @onready var instructions: Panel = $Instructions
 
 func update_values(o2, fuel, alt,spd) -> void:

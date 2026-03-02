@@ -1,5 +1,5 @@
 extends Control
-@export var main : PackedScene
+#@export var main : PackedScene
 @onready var credits: Panel = $Credits
 @onready var main_menu: Panel = $MainMenu
 
@@ -11,7 +11,8 @@ func _on_credits_pressed() -> void:
 	credits.visible = true
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_packed(main)
+	#get_tree().change_scene_to_packed(main)
+	pass
 
 func _on_close_credits_pressed() -> void:
 	main_menu.visible = true

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://crbo2pkasb7tm" path="res://Scripts/player_ui.gd" id="1_vi3dy"]
 [ext_resource type="Texture2D" uid="uid://cjdfdx8mnj2et" path="res://Assets/enemy_health_bar_background_000.png" id="2_jbpjp"]
-[ext_resource type="PackedScene" uid="uid://tknykdbn8xdf" path="res://Scenes/start_screen.tscn" id="2_uflt7"]
 [ext_resource type="FontFile" uid="uid://dk4jb8bhj7ic7" path="res://Assets/Orbitron-VariableFont_wght.ttf" id="3_6jssq"]
 [ext_resource type="Texture2D" uid="uid://d2bgit5y14aij" path="res://Assets/enemy_health_bar_foreground_001.png" id="3_uflt7"]
 [ext_resource type="Texture2D" uid="uid://r1ylleud7uaq" path="res://Assets/fuelbar.png" id="4_jbpjp"]
@@ -20,7 +19,6 @@ offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vi3dy")
-menu = ExtResource("2_uflt7")
 
 [node name="Instructions" type="Panel" parent="." unique_id=1003035798]
 layout_mode = 0

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://tknykdbn8xdf"]
 
 [ext_resource type="Script" uid="uid://2oyoc6a8af8v" path="res://Scripts/start_screen.gd" id="1_i8r30"]
-[ext_resource type="PackedScene" uid="uid://lly21y7jwda8" path="res://Scenes/main_scene.tscn" id="2_ainjc"]
 [ext_resource type="FontFile" uid="uid://dk4jb8bhj7ic7" path="res://Assets/Orbitron-VariableFont_wght.ttf" id="3_5e717"]
 [ext_resource type="Texture2D" uid="uid://cg672onmwausg" path="res://Assets/finally.png" id="4_mtlf8"]
 
@@ -13,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i8r30")
-main = ExtResource("2_ainjc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1005067876]
 z_index = -7
