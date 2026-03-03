@@ -10,6 +10,8 @@
 [ext_resource type="ArrayMesh" uid="uid://d2q4gmcsa63q0" path="res://Assets/addons/Soyuz/Parts1.obj" id="8_h4iuc"]
 [ext_resource type="ArrayMesh" uid="uid://ce8vv2427k80n" path="res://Assets/addons/Soyuz/Solar Panels.obj" id="9_fd4e3"]
 [ext_resource type="PackedScene" uid="uid://p0vos8c3lx0" path="res://Scenes/player_ui.tscn" id="10_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://xwie06lt3bj7" path="res://Assets/sound effect & music/SFX - Main engine thrust.ogg" id="11_gymyn"]
+[ext_resource type="AudioStream" uid="uid://btly817bglwrl" path="res://Assets/sound effect & music/Wizardtorium.mp3" id="12_pu2lt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqcod"]
 albedo_texture = ExtResource("2_f1ek2")
@@ -31,7 +33,7 @@ radius = 0.26513672
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1ek2"]
 size = Vector3(2.0410156, 0.10546875, 0.46679688)
 
-[node name="Player" type="RigidBody3D" unique_id=1835510441]
+[node name="Player" type="RigidBody3D" unique_id=1835510441 groups=["Gravity Objects", "player"]]
 mass = 10.0
 script = ExtResource("1_v0iea")
 
@@ -78,3 +80,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017693639, 0.01953125, -0.
 shape = SubResource("BoxShape3D_f1ek2")
 
 [node name="PlayerUI" parent="." unique_id=477024605 instance=ExtResource("10_tx1dd")]
+
+[node name="EngineSFX" type="AudioStreamPlayer" parent="." unique_id=1746868819]
+stream = ExtResource("11_gymyn")
+volume_db = 8.056
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=599811095]
+stream = ExtResource("12_pu2lt")
+autoplay = true
+parameters/looping = true
+
+[node name="EngineParticles" type="GPUParticles3D" parent="." unique_id=524884227]

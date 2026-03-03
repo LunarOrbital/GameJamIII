@@ -2,9 +2,9 @@ extends RigidBody3D
 class_name player
 @export var fuel := 100.0
 var currentSystem : RigidBody3D
-var thrust := 30000
+var thrust := 30000.0
 var isp = .05
-var SASSens := 400
+var SASSens := 400.0
 @export var currSystem : RigidBody3D
 @onready var rvs_cam: Camera3D = $rvsCam
 @onready var _3_rd_cam: Camera3D = $"3rdCam"
@@ -15,7 +15,25 @@ var o2 := 100.0
 var landed : bool = false
 var landedAlt : float
 var dead := -1
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var o2Drain : float = .064
+@onready var engine_sfx: AudioStreamPlayer = $EngineSFX
+@onready var music: AudioStreamPlayer = $music
+var engine : bool
+@onready var engine_particles: GPUParticles3D = $EngineParticles
+
+func setDifficulty(diff :String) -> void:
+	if (diff == "hard"):
+		o2Drain *= 2
+		isp *=2
+		thrust /= 2
+		SASSens /=1.5
+	elif(diff == "med"):
+		o2Drain = .064
+		isp = .05
+	elif(diff == "easy"):
+		o2Drain *= .5
+		isp *=.5
+		thrust *= 1.3
 func _physics_process(delta: float) -> void:
 	for obj in get_tree().get_nodes_in_group("Gravity Objects"):
 		var newDist = global_position.distance_to(obj.global_position)
@@ -75,3 +93,14 @@ func _physics_process(delta: float) -> void:
 			apply_torque(global_basis.z * SASSens * delta)
 		if (Input.is_action_pressed("RollLeft")):
 			apply_torque(-global_basis.z * SASSens * delta)
+	if!(Input.is_action_pressed("Forward") || Input.is_action_pressed("Left") || Input.is_action_pressed("Right") || Input.is_action_pressed("Back")) || Input.is_action_pressed("Down") || Input.is_action_pressed("Up"):
+		if !(engine_sfx.playing):
+			engine_sfx.playing = false
+			engine_particles.emitting = false
+		else:
+			engine_sfx.playing = true
+			engine_particles.emitting = true
+const SFX___DEATH_EXPLOSION = preload("uid://cybnk2g0wdy0n")
+const SFX___MAIN_ENGINE_THRUST = preload("uid://xwie06lt3bj7")
+const SFX___SUCCESS = preload("uid://cb4crtjr6dt6q")
+const WIZARDTORIUM = preload("uid://btly817bglwrl")

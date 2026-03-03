@@ -6,7 +6,22 @@ extends Control
 @onready var loss_screen: Panel = $LossScreen
 @onready var label: Label = $LossScreen/Label
 @onready var instructions: Panel = $Instructions
+@onready var option_button: OptionButton = $Instructions/OptionButton
+@onready var close_intro: Button = $Instructions/closeIntro
 
+func _process(_delta: float) -> void:
+	if(option_button.selected != -1 and option_button.visible == true):
+		close_intro.visible = true
+		var p : player = get_tree().get_first_node_in_group("player")
+		if (option_button.selected == 0):
+			p.setDifficulty("easy")		
+		elif (option_button.selected == 1):
+			p.setDifficulty("med")
+		elif (option_button.selected == 2):
+			p.setDifficulty("hard")
+		else:
+			print("E07 No valid button selected")
+		option_button.visible = false
 func update_values(o2, fuel, alt,spd) -> void:
 	fuel_bar.value = fuel
 	o_2_bar.value = o2
@@ -31,6 +46,8 @@ func display_screen(a : int):
 
 func _on_try_again_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
 
 func _on_close_intro_pressed() -> void:
 	instructions.visible = false

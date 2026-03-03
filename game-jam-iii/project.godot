@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [global_group]
 
 "Gravity Objects"="All objects to be affected by n gravity"
+player="used for exactly one line of code but this is easier"
 
 [input]
 

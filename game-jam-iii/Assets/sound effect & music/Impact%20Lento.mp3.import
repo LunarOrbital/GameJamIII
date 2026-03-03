@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2vl3v13feg7c"
+path="res://.godot/imported/Impact%20Lento.mp3-25921f2d1b996829ca4059574c83af4f.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound effect & music/Impact%20Lento.mp3"
+dest_files=["res://.godot/imported/Impact%20Lento.mp3-25921f2d1b996829ca4059574c83af4f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

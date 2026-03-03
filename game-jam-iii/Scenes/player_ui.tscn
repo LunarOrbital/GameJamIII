@@ -24,7 +24,7 @@ script = ExtResource("1_vi3dy")
 layout_mode = 0
 offset_left = 248.0
 offset_top = 192.0
-offset_right = 824.0
+offset_right = 984.0
 offset_bottom = 472.0
 
 [node name="Label" type="Label" parent="Instructions" unique_id=122825271]
@@ -51,6 +51,7 @@ roll the spacecraft. Watch fuel and o2, & land to refuel
 Reach the marked star to win. "
 
 [node name="closeIntro" type="Button" parent="Instructions" unique_id=1306148150]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 216.0
@@ -58,6 +59,30 @@ offset_right = 560.0
 offset_bottom = 272.0
 theme_override_font_sizes/font_size = 32
 text = "Launch"
+
+[node name="OptionButton" type="OptionButton" parent="Instructions" unique_id=781352640]
+layout_mode = 0
+offset_left = 577.0
+offset_top = 88.0
+offset_right = 732.0
+offset_bottom = 119.0
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+
+[node name="Label3" type="Label" parent="Instructions" unique_id=790752337]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 693.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 20
+text = "Choose 
+Difficulty 
+Here:"
 
 [node name="HUD" type="Polygon2D" parent="." unique_id=438403724]
 color = Color(0.26584637, 0.26584637, 0.26584637, 1)
