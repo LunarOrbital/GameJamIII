@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2oyoc6a8af8v" path="res://Scripts/start_screen.gd" id="1_i8r30"]
 [ext_resource type="FontFile" uid="uid://dk4jb8bhj7ic7" path="res://Assets/Orbitron-VariableFont_wght.ttf" id="3_5e717"]
+[ext_resource type="AudioStream" uid="uid://d2vl3v13feg7c" path="res://Assets/sound effect & music/Impact%20Lento.mp3" id="4_5e717"]
 [ext_resource type="Texture2D" uid="uid://cg672onmwausg" path="res://Assets/finally.png" id="4_mtlf8"]
 
 [node name="StartScreen" type="Control" unique_id=789131218]
@@ -107,6 +108,11 @@ offset_bottom = 405.0
 scale = Vector2(2.2112935, 2.2112935)
 theme_override_font_sizes/font_size = 38
 text = "Close"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=847296334]
+stream = ExtResource("4_5e717")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenu/EndGame" to="." method="_on_end_game_pressed"]

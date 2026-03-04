@@ -45,7 +45,8 @@ func _on_body_entered(body: Node) -> void:
 	elif(body is player):
 		body.landed = true 
 		body.landedAlt = global_position.distance_to(body.global_position)
-
+		if (body.diff2 == "hard") && (body.spd2 > 200):
+			body.dead = 3
 	else:
 		print("ERR 03: Unrecongnized body collided:" + str(body))
 

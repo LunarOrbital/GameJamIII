@@ -8,8 +8,13 @@ extends Control
 @onready var instructions: Panel = $Instructions
 @onready var option_button: OptionButton = $Instructions/OptionButton
 @onready var close_intro: Button = $Instructions/closeIntro
+@onready var label_3: Label = $Instructions/Label3
+@onready var quit_2: Button = $Instructions/Quit2
 
 func _process(_delta: float) -> void:
+	if (Input.is_action_pressed("pause")):
+		quit_2.visible = true
+		instructions.visible = !instructions.visible
 	if(option_button.selected != -1 and option_button.visible == true):
 		close_intro.visible = true
 		var p : player = get_tree().get_first_node_in_group("player")
@@ -38,6 +43,9 @@ func display_screen(a : int):
 	elif(a == 2):
 		loss_screen.visible = true
 		label.text = "You've run out of oxygen in the void of space. \n if only you could have landed in time..."
+	elif (a==3):
+		loss_screen.visible = true
+		label.text = "Lithobraking isnt such a great plan... \n Maybe your difficulty is a bit too high for you?"
 	else:
 		loss_screen.visible = true
 		print("E05")
@@ -47,7 +55,9 @@ func display_screen(a : int):
 func _on_try_again_pressed() -> void:
 	get_tree().reload_current_scene()
 
-
-
 func _on_close_intro_pressed() -> void:
 	instructions.visible = false
+	label_3.visible = false
+
+func _on_quit_2_pressed() -> void:
+	get_tree().quit()

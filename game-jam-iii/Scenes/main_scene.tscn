@@ -29,16 +29,16 @@ packed_star = ExtResource("3_jv6wh")
 environment = SubResource("Environment_iacmt")
 
 [node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -25770.031)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -23050.64)
 gravity_scale = 0.0
 currSystem = NodePath("../BeginStar")
 
 [node name="BeginStar" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24938.31)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22149.05)
 starCheck = "start"
 
-[node name="EndStar" parent="." unique_id=1905952002 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33569.28)
+[node name="EndStar" parent="." unique_id=1905952002 groups=["endstar"] instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24993.887)
 starCheck = "end"
 
 [node name="Sprite3D" type="Sprite3D" parent="EndStar" unique_id=1291864770]

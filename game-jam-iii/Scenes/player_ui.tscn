@@ -48,7 +48,7 @@ theme_override_font_sizes/font_size = 19
 text = "Controls: WASD + Q and E to move in full 6 directions.
 Arrow keys to control pitch and yaw, ',' and '.'  keys to
 roll the spacecraft. Watch fuel and o2, & land to refuel
-Reach the marked star to win. "
+Reach the marked star to win. Shift+C to change camera."
 
 [node name="closeIntro" type="Button" parent="Instructions" unique_id=1306148150]
 visible = false
@@ -83,6 +83,16 @@ theme_override_font_sizes/font_size = 20
 text = "Choose 
 Difficulty 
 Here:"
+
+[node name="Quit2" type="Button" parent="Instructions" unique_id=1118622710]
+visible = false
+layout_mode = 0
+offset_left = 579.0
+offset_top = 15.0
+offset_right = 722.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 26
+text = "Quit Game?"
 
 [node name="HUD" type="Polygon2D" parent="." unique_id=438403724]
 color = Color(0.26584637, 0.26584637, 0.26584637, 1)
@@ -169,4 +179,5 @@ theme_override_font_sizes/font_size = 48
 text = "Try Again"
 
 [connection signal="pressed" from="Instructions/closeIntro" to="." method="_on_close_intro_pressed"]
+[connection signal="pressed" from="Instructions/Quit2" to="." method="_on_quit_2_pressed"]
 [connection signal="pressed" from="LossScreen/TryAgain" to="." method="_on_try_again_pressed"]

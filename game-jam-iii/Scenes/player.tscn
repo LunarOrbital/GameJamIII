@@ -33,6 +33,23 @@ radius = 0.26513672
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1ek2"]
 size = Vector3(2.0410156, 0.10546875, 0.46679688)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pu2lt"]
+lifetime_randomness = 1.0
+particle_flag_damping_as_friction = true
+inherit_velocity_ratio = 2.175
+spread = 26.495
+initial_velocity_max = 31.109999
+scale_min = 0.59999996
+scale_max = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukyrk"]
+albedo_color = Color(1, 0.2901961, 0.14901961, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7dp3o"]
+material = SubResource("StandardMaterial3D_ukyrk")
+radius = 0.025
+height = 0.05
+
 [node name="Player" type="RigidBody3D" unique_id=1835510441 groups=["Gravity Objects", "player"]]
 mass = 10.0
 script = ExtResource("1_v0iea")
@@ -67,12 +84,12 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, -0.0006824732, -0.6664700
 shape = SubResource("CylinderShape3D_v0iea")
 
 [node name="3rdCam" type="Camera3D" parent="." unique_id=707469262]
-transform = Transform3D(1, 0, 0, 0, 0.93693477, 0.34950438, 0, -0.34950438, 0.93693477, -1.1920929e-07, 0.628637, 0.07112265)
+transform = Transform3D(1, 0, 0, 0, 0.9394236, 0.3427581, 0, -0.3427581, 0.9394236, -1.1920929e-07, 0.76565963, 0.4949123)
 current = true
 far = 99999.0
 
 [node name="rvsCam" type="Camera3D" parent="." unique_id=1122867169]
-transform = Transform3D(-1, -1.7689312e-07, 2.635139e-08, -1.695843e-07, 0.9846681, 0.17443874, -5.6804385e-08, 0.17443876, -0.984668, -1.1920929e-07, 0.5113947, -0.59386814)
+transform = Transform3D(-1, -1.7689312e-07, 2.635139e-08, -1.695843e-07, 0.9846681, 0.17443874, -5.6804385e-08, 0.17443876, -0.984668, -1.1920929e-07, 0.4655398, -1.1433792)
 far = 99999.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1888311005]
@@ -83,7 +100,6 @@ shape = SubResource("BoxShape3D_f1ek2")
 
 [node name="EngineSFX" type="AudioStreamPlayer" parent="." unique_id=1746868819]
 stream = ExtResource("11_gymyn")
-volume_db = 8.056
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=599811095]
 stream = ExtResource("12_pu2lt")
@@ -91,3 +107,12 @@ autoplay = true
 parameters/looping = true
 
 [node name="EngineParticles" type="GPUParticles3D" parent="." unique_id=524884227]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0, 0, -0.022777796)
+emitting = false
+amount = 200
+lifetime = 0.2
+preprocess = 11.2
+speed_scale = 0.45
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pu2lt")
+draw_pass_1 = SubResource("SphereMesh_7dp3o")
