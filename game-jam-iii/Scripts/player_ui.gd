@@ -10,23 +10,34 @@ extends Control
 @onready var close_intro: Button = $Instructions/closeIntro
 @onready var label_3: Label = $Instructions/Label3
 @onready var quit_2: Button = $Instructions/Quit2
+@onready var star_panel: Panel = $starPanel
+@onready var hard: Sprite2D = $starPanel/hard
+@onready var med: Sprite2D = $starPanel/med
+@onready var easy: Sprite2D = $starPanel/easy
+@onready var plinko_star: Sprite2D = $starPanel/PlinkoStar
+@onready var eye_star: Sprite2D = $starPanel/eyeStar
 
+var diff : String
 func _process(_delta: float) -> void:
-	if (Input.is_action_pressed("pause")):
+	if (Input.is_action_just_pressed("pause")):
 		quit_2.visible = true
 		instructions.visible = !instructions.visible
 	if(option_button.selected != -1 and option_button.visible == true):
 		close_intro.visible = true
 		var p : player = get_tree().get_first_node_in_group("player")
 		if (option_button.selected == 0):
-			p.setDifficulty("easy")		
+			p.setDifficulty("easy")
+			diff = 'easy'
 		elif (option_button.selected == 1):
 			p.setDifficulty("med")
+			diff = 'med'
 		elif (option_button.selected == 2):
 			p.setDifficulty("hard")
+			diff = 'hard'
 		else:
 			print("E07 No valid button selected")
 		option_button.visible = false
+		label_3.visible = false
 func update_values(o2, fuel, alt,spd) -> void:
 	fuel_bar.value = fuel
 	o_2_bar.value = o2
@@ -37,6 +48,13 @@ func display_screen(a : int):
 	if (a == 0):
 		loss_screen.visible = true
 		label.text = "You've reached you final destination and lived! \n You've saved the human race!"
+		if (diff == "med"):
+			med.visible = true
+		elif (diff == 'hard'):
+			hard.visible = true
+		elif (diff == 'easy'):
+			easy.visible = true
+		star_panel.visible = true
 	elif (a == 1):
 		loss_screen.visible = true
 		label.text = "You've flown directly into the sun and Died!!! \n Such a foolish fate indeed"

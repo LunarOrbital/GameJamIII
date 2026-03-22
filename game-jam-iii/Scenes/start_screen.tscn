@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://tknykdbn8xdf"]
+[gd_scene load_steps=5 format=3 uid="uid://tknykdbn8xdf"]
 
 [ext_resource type="Script" uid="uid://2oyoc6a8af8v" path="res://Scripts/start_screen.gd" id="1_i8r30"]
 [ext_resource type="FontFile" uid="uid://dk4jb8bhj7ic7" path="res://Assets/Orbitron-VariableFont_wght.ttf" id="3_5e717"]
 [ext_resource type="AudioStream" uid="uid://d2vl3v13feg7c" path="res://Assets/sound effect & music/Impact%20Lento.mp3" id="4_5e717"]
 [ext_resource type="Texture2D" uid="uid://cg672onmwausg" path="res://Assets/finally.png" id="4_mtlf8"]
 
-[node name="StartScreen" type="Control" unique_id=789131218]
+[node name="StartScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,16 +14,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i8r30")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1005067876]
+[node name="TextureRect" type="TextureRect" parent="."]
 z_index = -7
 layout_mode = 0
-offset_left = -162.0
-offset_top = -75.0
-offset_right = 1438.0
-offset_bottom = 725.0
+offset_left = -82.99999
+offset_top = -4.9999995
+offset_right = 1517.0
+offset_bottom = 795.0
+scale = Vector2(0.816, 0.816)
 texture = ExtResource("4_mtlf8")
 
-[node name="MainMenu" type="Panel" parent="." unique_id=1656209276]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.9999998
+offset_top = 620.0
+offset_right = 93.0
+offset_bottom = 671.0
+scale = Vector2(0.53565764, 0.53565764)
+theme_override_fonts/font = ExtResource("3_5e717")
+theme_override_font_sizes/font_size = 40
+text = "v. 1.1.2 (inProgress!)"
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 622.0
+offset_right = 1166.0
+offset_bottom = 648.0
+scale = Vector2(0.72183704, 0.72183704)
+theme_override_fonts/font = ExtResource("3_5e717")
+theme_override_font_sizes/font_size = 20
+text = "Github"
+uri = "https://github.com/LunarOrbital/GameJamIII"
+
+[node name="MainMenu" type="Panel" parent="."]
 modulate = Color(0.47196072, 0.86183965, 1, 1)
 layout_mode = 0
 offset_left = 56.0
@@ -32,7 +56,7 @@ offset_right = 316.37292
 offset_bottom = 184.76631
 scale = Vector2(3.8752108, 3.8752108)
 
-[node name="StartButton" type="Button" parent="MainMenu" unique_id=1214742470]
+[node name="StartButton" type="Button" parent="MainMenu"]
 layout_mode = 0
 offset_left = 148.37903
 offset_top = 57.029156
@@ -44,28 +68,29 @@ theme_override_font_sizes/font_size = 64
 text = "Begin 
 Flight"
 
-[node name="EndGame" type="Button" parent="MainMenu" unique_id=27774964]
+[node name="EndGame" type="Button" parent="MainMenu"]
 layout_mode = 0
-offset_top = 110.18755
-offset_right = 128.0
-offset_bottom = 201.87753
+offset_left = 0.77415144
+offset_top = 111.735855
+offset_right = 144.77415
+offset_bottom = 200.73808
 scale = Vector2(0.4889578, 0.37401882)
 theme_override_fonts/font = ExtResource("3_5e717")
 theme_override_font_sizes/font_size = 32
 text = "Give Up"
 
-[node name="Credits" type="Button" parent="MainMenu" unique_id=742215846]
+[node name="Credits" type="Button" parent="MainMenu"]
 layout_mode = 0
-offset_left = 71.221924
-offset_top = 110.96171
-offset_right = 271.22192
-offset_bottom = 208.9617
+offset_left = 72.25413
+offset_top = 110.70366
+offset_right = 272.25415
+offset_bottom = 211.78606
 scale = Vector2(0.3804638, 0.334868)
 theme_override_fonts/font = ExtResource("3_5e717")
 theme_override_font_sizes/font_size = 48
 text = "Credits"
 
-[node name="Title" type="Label" parent="MainMenu" unique_id=1453390612]
+[node name="Title" type="Label" parent="MainMenu"]
 layout_mode = 0
 offset_right = 731.8536
 offset_bottom = 320.14902
@@ -75,23 +100,25 @@ theme_override_font_sizes/font_size = 100
 text = "The Space 
 Race!"
 
-[node name="Credits" type="Panel" parent="." unique_id=907913144]
+[node name="Credits" type="Panel" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 293.0
-offset_top = 79.0
+offset_top = 57.0
 offset_right = 845.0
-offset_bottom = 564.0
+offset_bottom = 583.0
 
-[node name="Label" type="Label" parent="Credits" unique_id=938755098]
+[node name="Label" type="Label" parent="Credits"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = -3.0
+offset_right = 503.0
+offset_bottom = 548.0
 theme_override_font_sizes/font_size = 32
 text = "Credits: 
 Game Developed by Benjamin B.
 Game Coded by Benjamin B.
-Planetary assets from asset library
+Planetary assets from 3D 
+planet generator addon
 
 Special Thanks to:
 	- Colin Harrington-Ding
@@ -99,19 +126,19 @@ Special Thanks to:
 	- Beau Barber
 	- Jaycob Pecina"
 
-[node name="closeCredits" type="Button" parent="Credits" unique_id=131797223]
+[node name="closeCredits" type="Button" parent="Credits"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 344.0
-offset_right = 396.0
-offset_bottom = 405.0
+offset_left = 270.0
+offset_top = 378.0
+offset_right = 376.0
+offset_bottom = 439.0
 scale = Vector2(2.2112935, 2.2112935)
 theme_override_font_sizes/font_size = 38
 text = "Close"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=847296334]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5e717")
-autoplay = true
+volume_db = 0.954
 parameters/looping = true
 
 [connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]

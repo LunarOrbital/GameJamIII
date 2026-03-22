@@ -21,23 +21,25 @@ var o2Drain : float = 0.0
 var engine : bool
 @onready var engine_particles: GPUParticles3D = $EngineParticles
 var diff2 : String
+var earned : int = 0
 func setDifficulty(diff :String) -> void:
 	diff2 = diff
 	thrust = 30000
-	isp = .1
-	o2Drain = 0.05
+	isp = .04
+	o2Drain = 0.04
 	if (diff == "hard"):
 		o2Drain *= 2
 		isp *=2
 		thrust /= 2
 		SASSens /=1.5
 	elif(diff == "med"):
-		o2Drain = .064
-		isp = .05
+		o2Drain = .04
+		isp = .04
 	elif(diff == "easy"):
 		o2Drain *= .5
 		isp *=.5
 		thrust *= 1.3
+var spd2 : float
 func _physics_process(delta: float) -> void:
 	if (self.global_position.distance_to(get_tree().get_first_node_in_group("endstar").global_position) < 1000):
 		dead = 0
@@ -57,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		if (fuel < 100):
 			fuel += 1
 	#make more accurate
-	var spd2 = linear_velocity.x + linear_velocity.y + linear_velocity.z
+	spd2 = abs(linear_velocity.x + linear_velocity.y + linear_velocity.z)
 	if (closestObj != null):
 		var alt = global_position.distance_to(closestObj.global_position)
 		player_ui.update_values(o2,fuel,alt,spd2)
@@ -66,6 +68,13 @@ func _physics_process(delta: float) -> void:
 		player_ui.update_values(o2,fuel,0,spd2)
 	if (dead > -1):
 		player_ui.display_screen(dead)
+	if(Input.is_action_just_pressed("hax ")):
+		print("its feldsparrin time")
+		o2Drain = 0
+		isp = 0
+		thrust *=1.25
+		diff2 = 'hax'
+		player_ui.diff = diff2
 	if (Input.is_action_just_pressed("switchCam")):
 		_3_rd_cam.current = !_3_rd_cam.current
 	if (fuel >= 0):

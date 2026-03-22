@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://p0vos8c3lx0"]
+[gd_scene load_steps=9 format=3 uid="uid://p0vos8c3lx0"]
 
 [ext_resource type="Script" uid="uid://crbo2pkasb7tm" path="res://Scripts/player_ui.gd" id="1_vi3dy"]
 [ext_resource type="Texture2D" uid="uid://cjdfdx8mnj2et" path="res://Assets/enemy_health_bar_background_000.png" id="2_jbpjp"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://r1ylleud7uaq" path="res://Assets/fuelbar.png" id="4_jbpjp"]
 [ext_resource type="Texture2D" uid="uid://nwhuv76k3j53" path="res://Assets/enemy_health_bar_foreground_000.png" id="5_3nrpj"]
 [ext_resource type="Texture2D" uid="uid://da15th8ot7h8k" path="res://Assets/o2bar.png" id="6_uflt7"]
+[ext_resource type="Texture2D" uid="uid://b6eogrr4j0o5x" path="res://Assets/goodStar.png" id="8_6jssq"]
 
-[node name="PlayerUI" type="Control" unique_id=477024605]
+[node name="PlayerUI" type="Control"]
 modulate = Color(1, 1, 1, 0.9990001)
 layout_mode = 3
 anchors_preset = 15
@@ -20,14 +21,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vi3dy")
 
-[node name="Instructions" type="Panel" parent="." unique_id=1003035798]
+[node name="Instructions" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 248.0
 offset_top = 192.0
 offset_right = 984.0
 offset_bottom = 472.0
 
-[node name="Label" type="Label" parent="Instructions" unique_id=122825271]
+[node name="Label" type="Label" parent="Instructions"]
 layout_mode = 0
 offset_right = 612.0
 offset_bottom = 112.0
@@ -37,7 +38,7 @@ text = "The Universe is dying. We have identified a star nearby
  that should last a little longer than the rest of them. 
 Make your way there, and save our species."
 
-[node name="Label2" type="Label" parent="Instructions" unique_id=782004579]
+[node name="Label2" type="Label" parent="Instructions"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 104.0
@@ -50,7 +51,7 @@ Arrow keys to control pitch and yaw, ',' and '.'  keys to
 roll the spacecraft. Watch fuel and o2, & land to refuel
 Reach the marked star to win. Shift+C to change camera."
 
-[node name="closeIntro" type="Button" parent="Instructions" unique_id=1306148150]
+[node name="closeIntro" type="Button" parent="Instructions"]
 visible = false
 layout_mode = 0
 offset_left = 16.0
@@ -60,7 +61,7 @@ offset_bottom = 272.0
 theme_override_font_sizes/font_size = 32
 text = "Launch"
 
-[node name="OptionButton" type="OptionButton" parent="Instructions" unique_id=781352640]
+[node name="OptionButton" type="OptionButton" parent="Instructions"]
 layout_mode = 0
 offset_left = 577.0
 offset_top = 88.0
@@ -74,7 +75,7 @@ popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
 
-[node name="Label3" type="Label" parent="Instructions" unique_id=790752337]
+[node name="Label3" type="Label" parent="Instructions"]
 layout_mode = 0
 offset_left = 600.0
 offset_right = 693.0
@@ -84,7 +85,7 @@ text = "Choose
 Difficulty 
 Here:"
 
-[node name="Quit2" type="Button" parent="Instructions" unique_id=1118622710]
+[node name="Quit2" type="Button" parent="Instructions"]
 visible = false
 layout_mode = 0
 offset_left = 579.0
@@ -94,25 +95,25 @@ offset_bottom = 59.0
 theme_override_font_sizes/font_size = 26
 text = "Quit Game?"
 
-[node name="HUD" type="Polygon2D" parent="." unique_id=438403724]
+[node name="HUD" type="Polygon2D" parent="."]
 color = Color(0.26584637, 0.26584637, 0.26584637, 1)
 polygon = PackedVector2Array(-1, 273, 98, 371, 98, 544, 256, 544, 315, 649, 0, 649)
 
-[node name="Polygon2D3" type="Polygon2D" parent="HUD" unique_id=1849841680]
+[node name="Polygon2D3" type="Polygon2D" parent="HUD"]
 color = Color(0.4990465, 0.49904615, 0.49904603, 1)
 polygon = PackedVector2Array(113, 560, 122, 550, 235, 550, 243, 558, 243, 635, 237, 643, 120, 643, 113, 634)
 
-[node name="Polygon2D" type="Polygon2D" parent="HUD" unique_id=366379301]
+[node name="Polygon2D" type="Polygon2D" parent="HUD"]
 position = Vector2(136, 558)
 color = Color(0.42860928, 0.3207921, 0.17264572, 1)
 polygon = PackedVector2Array(101, 0, 101, 38, -17, 38, -17, 0)
 
-[node name="Polygon2D2" type="Polygon2D" parent="HUD" unique_id=1431365773]
+[node name="Polygon2D2" type="Polygon2D" parent="HUD"]
 position = Vector2(136, 600)
 color = Color(0.42860928, 0.3207921, 0.17264572, 1)
 polygon = PackedVector2Array(101, 0, 101, 38, -17, 38, -17, 0)
 
-[node name="FuelBar" type="TextureProgressBar" parent="HUD" unique_id=40731070]
+[node name="FuelBar" type="TextureProgressBar" parent="HUD"]
 offset_left = 39.0
 offset_top = 300.0
 offset_right = 295.0
@@ -126,7 +127,7 @@ texture_over = ExtResource("3_uflt7")
 texture_progress = ExtResource("4_jbpjp")
 texture_progress_offset = Vector2(14.48, 8.53)
 
-[node name="O2Bar" type="TextureProgressBar" parent="HUD" unique_id=812099457]
+[node name="O2Bar" type="TextureProgressBar" parent="HUD"]
 offset_left = 38.0
 offset_top = 644.0
 offset_right = 294.0
@@ -138,21 +139,21 @@ texture_under = ExtResource("2_jbpjp")
 texture_over = ExtResource("5_3nrpj")
 texture_progress = ExtResource("6_uflt7")
 
-[node name="DVText" type="Label" parent="HUD" unique_id=1010888330]
+[node name="DVText" type="Label" parent="HUD"]
 offset_left = 138.0
 offset_top = 608.0
 offset_right = 209.0
 offset_bottom = 631.0
 text = "2000 M/S"
 
-[node name="AltText" type="Label" parent="HUD" unique_id=1151621859]
+[node name="AltText" type="Label" parent="HUD"]
 offset_left = 146.0
 offset_top = 566.0
 offset_right = 186.0
 offset_bottom = 589.0
 text = "- M"
 
-[node name="LossScreen" type="Panel" parent="." unique_id=378184453]
+[node name="LossScreen" type="Panel" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 248.0
@@ -160,7 +161,7 @@ offset_top = 136.0
 offset_right = 984.0
 offset_bottom = 378.0
 
-[node name="Label" type="Label" parent="LossScreen" unique_id=305187496]
+[node name="Label" type="Label" parent="LossScreen"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 24.0
@@ -169,7 +170,7 @@ offset_bottom = 117.0
 theme_override_font_sizes/font_size = 32
 text = "E05: End Text not found"
 
-[node name="TryAgain" type="Button" parent="LossScreen" unique_id=1394926938]
+[node name="TryAgain" type="Button" parent="LossScreen"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 128.0
@@ -177,6 +178,51 @@ offset_right = 249.0
 offset_bottom = 203.0
 theme_override_font_sizes/font_size = 48
 text = "Try Again"
+
+[node name="starPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 100.0
+offset_top = 368.0
+offset_right = 216.0
+offset_bottom = 544.0
+
+[node name="hard" type="Sprite2D" parent="starPanel"]
+visible = false
+texture_filter = 1
+position = Vector2(28, 32)
+scale = Vector2(2.8137207, 2.8137207)
+texture = ExtResource("8_6jssq")
+
+[node name="med" type="Sprite2D" parent="starPanel"]
+visible = false
+texture_filter = 1
+position = Vector2(28, 80)
+scale = Vector2(2.8137207, 2.8137207)
+texture = ExtResource("8_6jssq")
+
+[node name="easy" type="Sprite2D" parent="starPanel"]
+visible = false
+texture_filter = 1
+position = Vector2(28, 128)
+scale = Vector2(2.8137207, 2.8137207)
+texture = ExtResource("8_6jssq")
+
+[node name="eyeStar" type="Sprite2D" parent="starPanel"]
+visible = false
+self_modulate = Color(0.49411765, 0, 0, 1)
+texture_filter = 1
+position = Vector2(84, 80)
+scale = Vector2(2.8137207, 2.8137207)
+texture = ExtResource("8_6jssq")
+
+[node name="PlinkoStar" type="Sprite2D" parent="starPanel"]
+visible = false
+modulate = Color(0, 1, 0, 1)
+texture_filter = 1
+position = Vector2(84, 128)
+scale = Vector2(2.8137207, 2.8137207)
+texture = ExtResource("8_6jssq")
 
 [connection signal="pressed" from="Instructions/closeIntro" to="." method="_on_close_intro_pressed"]
 [connection signal="pressed" from="Instructions/Quit2" to="." method="_on_quit_2_pressed"]

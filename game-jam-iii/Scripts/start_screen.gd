@@ -2,7 +2,10 @@ extends Control
 @export var main = preload("res://Scenes/main_scene.tscn")
 @onready var credits: Panel = $Credits
 @onready var main_menu: Panel = $MainMenu
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
+func _ready() -> void:
+	audio_stream_player.play(12)
 func _on_end_game_pressed() -> void:
 	get_tree().quit()
 

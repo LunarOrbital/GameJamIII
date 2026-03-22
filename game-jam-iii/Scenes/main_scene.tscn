@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://htdttq03eg5r" path="res://Scenes/star_template.tscn" id="3_jv6wh"]
 [ext_resource type="Texture2D" uid="uid://cg672onmwausg" path="res://Assets/finally.png" id="3_x6ack"]
 [ext_resource type="Texture2D" uid="uid://m4x12iavudha" path="res://Assets/New Piskel-1.png (1).png" id="5_iacmt"]
+[ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="6_maf8m"]
+[ext_resource type="Texture2D" uid="uid://n67qu60dgpfh" path="res://Assets/icon.svg" id="7_huasi"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iacmt"]
 panorama = ExtResource("3_x6ack")
@@ -21,31 +23,122 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv6wh"]
 size = Vector3(6000, 6000, 50000)
 
-[node name="Main_Scene" type="Area3D" unique_id=418058434]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_maf8m"]
+albedo_color = Color(0.07450981, 0, 0.3019608, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mai8y"]
+material = SubResource("StandardMaterial3D_maf8m")
+flip_faces = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huasi"]
+albedo_color = Color(0, 0.7019608, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1efj"]
+albedo_color = Color(0.27513385, 0.11315005, 4.813075e-08, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mai8y"]
+
+[node name="Main_Scene" type="Area3D" unique_id=179402632]
 script = ExtResource("1_52fb6")
 packed_star = ExtResource("3_jv6wh")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=330603855]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1873791481]
 environment = SubResource("Environment_iacmt")
 
-[node name="Player" parent="." unique_id=1835510441 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -23050.64)
+[node name="Player" parent="." unique_id=1653315133 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 664.8092, -25148.14)
 gravity_scale = 0.0
 currSystem = NodePath("../BeginStar")
 
-[node name="BeginStar" parent="." unique_id=679551123 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22149.05)
+[node name="BeginStar" parent="." unique_id=1575057368 instance=ExtResource("3_jv6wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23206.332)
 starCheck = "start"
 
-[node name="EndStar" parent="." unique_id=1905952002 groups=["endstar"] instance=ExtResource("3_jv6wh")]
+[node name="EndStar" parent="." unique_id=1267238475 groups=["endstar"] instance=ExtResource("3_jv6wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24993.887)
 starCheck = "end"
 
-[node name="Sprite3D" type="Sprite3D" parent="EndStar" unique_id=1291864770]
+[node name="Sprite3D" type="Sprite3D" parent="EndStar" unique_id=1389484060]
 transform = Transform3D(10000, 0, 0, 0, 10000, 0, 0, 0, 10000, 0, 0, 0)
 billboard = 1
 texture_filter = 0
 texture = ExtResource("5_iacmt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1598888668]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=664261074]
 shape = SubResource("BoxShape3D_jv6wh")
+
+[node name="Eye" parent="." unique_id=512269042 instance=ExtResource("6_maf8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.08972, 128.83942, 5515.2056)
+visible = false
+mass = 90000.0
+check = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Eye" unique_id=387601099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.135254, -4.2387695, -13.836914)
+mesh = SubResource("SphereMesh_mai8y")
+
+[node name="Sprite3D" type="Sprite3D" parent="Eye" unique_id=848710761]
+transform = Transform3D(-5.001392, 26.416357, 9.380177, -12.995768, 6.2575254, -24.55156, -24.837908, -8.593313, 10.957137, 0, 0, 0)
+visible = false
+modulate = Color(0.105882354, 0.09019608, 0.34117648, 0.65882355)
+texture = ExtResource("7_huasi")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Eye" unique_id=537938286]
+transform = Transform3D(-1.7616843, 9.304867, 3.3040628, -4.5776143, 2.2041438, -8.648011, -8.748875, -3.0268984, 3.85953, 0, 0, 0)
+visible = false
+modulate = Color(0.105882354, 0.09019608, 0.34117648, 0.65882355)
+billboard = 1
+texture = ExtResource("7_huasi")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Eye" unique_id=984446154]
+
+[node name="Sprite3D2" type="Sprite3D" parent="Eye" unique_id=2146373798]
+transform = Transform3D(5000, 0, 0, 0, 5000, 0, 0, 0, 5000, 0, 0, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+texture = ExtResource("5_iacmt")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Eye" unique_id=744174002]
+transform = Transform3D(16.63, 0, 0, 0, 16.63, 0, 0, 0, 16.63, 10.689453, 0, 0)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="Eye" unique_id=889302782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.988312, -4.576889, -12.600586)
+
+[node name="plinko" parent="." unique_id=1185307421 instance=ExtResource("6_maf8m")]
+transform = Transform3D(0.8660254, -0.4330128, -0.25, -0.43301275, -0.399519, -0.8080127, 0.2500001, 0.8080127, -0.5334936, -2414.6772, -2983.4888, 3740.208)
+mass = 10.0
+check = true
+
+[node name="MeshInstance3D" type="CSGSphere3D" parent="plinko" unique_id=972604591]
+transform = Transform3D(4.605, 0, 0, 0, 4.605, 0, 0, 0, 4.605, 0, 0, 0)
+use_collision = true
+radial_segments = 24
+rings = 24
+material = SubResource("StandardMaterial3D_huasi")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="plinko/MeshInstance3D" unique_id=985926026]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 0.17089844, 0)
+operation = 2
+radius = 0.181
+height = 0.875
+sides = 19
+material = SubResource("StandardMaterial3D_m1efj")
+
+[node name="Area3D" type="Area3D" parent="plinko" unique_id=1363056539]
+transform = Transform3D(1.64, 0, 0, 0, 1.64, 0, 0, 0, 1.64, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plinko/Area3D" unique_id=1616684346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8547363, 0)
+shape = SubResource("CylinderShape3D_mai8y")
+
+[node name="Sprite3D22" type="Sprite3D" parent="plinko" unique_id=1712228035]
+transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, 0, 0, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+texture = ExtResource("5_iacmt")
+
+[connection signal="screen_exited" from="Eye/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="body_entered" from="plinko/Area3D" to="." method="_on_area_3d_body_entered"]

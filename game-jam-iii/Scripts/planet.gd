@@ -1,5 +1,6 @@
 extends RigidBody3D
 class_name Planet
+@export var check : bool
 @export var iceTexture : PackedScene
 @export var gasTexture : PackedScene 
 @export var lavaTexture : PackedScene 
@@ -11,29 +12,33 @@ class_name Planet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	mass = randi_range(500,1500)
-	var newText : PackedScene 
-	var i = randi_range(0,2)
-	if mass<1000:
-		if (i == 0):
-			newText = iceTexture
-		if (i == 1):
-			newText = sandTexture
-		if (i == 2):
-			newText = earthTexture
+	if !(check):
+		mass = randi_range(500,2500)
+		var newText : PackedScene 
+		var i = randi_range(0,2)
+		if mass<1250:
+			if (i == 0):
+				newText = iceTexture
+			if (i == 1):
+				newText = sandTexture
+			if (i == 2):
+				newText = earthTexture
+		else:
+			if (i == 0):
+				newText = deadTexture
+			if (i == 1):
+				newText = lavaTexture
+			if (i == 2):
+				newText = gasTexture
+		var newerText : MeshInstance3D = newText.instantiate()
+		add_child(newerText)
+		newerText.global_position = self.global_position
+		var scale2 = Vector3(mass/20,mass/20,mass/20)
+		newerText.scale = scale2
+		planet_coll.scale = scale2
+		mass *=3
 	else:
-		if (i == 0):
-			newText = deadTexture
-		if (i == 1):
-			newText = lavaTexture
-		if (i == 2):
-			newText = gasTexture
-	var newerText : MeshInstance3D = newText.instantiate()
-	add_child(newerText)
-	newerText.global_position = self.global_position
-	var scale2 = Vector3(mass/20,mass/20,mass/20)
-	newerText.scale = scale2
-	planet_coll.scale = scale2
+		planet_coll.queue_free()
 func _on_body_entered(body: Node) -> void:
 	if(body is Star):
 		self.queue_free()

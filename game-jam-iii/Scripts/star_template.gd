@@ -11,21 +11,23 @@ var currSystem : RigidBody3D
 var numPlanets : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start(randi_range(1,20))
+	star_mesh_temp_.mesh = star_mesh_temp_.mesh.duplicate()
 	make_planet()
 	Engine.time_scale = 1
+	if (starCheck == "start"):
+		timer.start()
+	elif (starCheck != "end"):
+		timer.start(randi_range(10,80))
 func _process(_delta: float) -> void:
 	star_coll.scale = star_mesh_temp_.scale
 
 func make_planet() -> void:
-	for i in range(randi_range(2,4)):
+	for i in range(randi_range(2,6)):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
 		add_child(newPlanet)
-		newPlanet.position = Vector3((i*140)+randi_range(-50,50)+100, 0.0, 0.0)
+		newPlanet.position = Vector3((i*164)+randi_range(-50,50)+200, 0.0, 0.0)
 		var spd = sqrt((600*mass)/newPlanet.position.x)/5.64
 		newPlanet.linear_velocity = Vector3(0,0,spd)
-		var rf = randf_range(-.8,2.5)
-		newPlanet.scale*=Vector3(rf,rf,rf)
 		newPlanet.currSystem = self
 func _on_timer_timeout() -> void:
 	explosion_player.play("explode")
