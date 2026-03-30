@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://htdttq03eg5r"]
+[gd_scene format=3 uid="uid://htdttq03eg5r"]
 
 [ext_resource type="Script" uid="uid://cmpuksus8l7ko" path="res://Scripts/star_template.gd" id="1_odifk"]
 [ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="2_k8aup"]
@@ -10,41 +10,14 @@ metallic = 1.0
 metallic_specular = 1.0
 backlight = Color(0.9512953, 0.82314444, 0.71822554, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_yevqt"]
+[sub_resource type="SphereMesh" id="SphereMesh_k8aup"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_k8aup")
 radius = 100.0
 height = 200.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yevqt"]
 radius = 105.16094
-
-[sub_resource type="Animation" id="Animation_k8aup"]
-resource_name = "explode"
-length = 200.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StarMesh(Temp):mesh:material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 103.8, 182.43333, 192, 192.26666, 199.76666),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(18.892157, 18.892157, 0, 1), Color(18.892157, 1.4035361, 0, 1), Color(18.892157, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 18.892157, 1), Color(0, 0, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StarMesh(Temp):scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 181.8, 191.56667, 200),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(2.64, 2.64, 2.64), Vector3(0.1, 0.1, 0.1), Vector3(5, 5, 5)]
-}
 
 [sub_resource type="Animation" id="Animation_yevqt"]
 length = 0.001
@@ -150,44 +123,72 @@ tracks/8/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsyqr"]
+[sub_resource type="Animation" id="Animation_k8aup"]
+resource_name = "explode"
+length = 210.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StarMesh(Temp):mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 103.8, 182.43333, 192, 192.26666, 209.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 0, 1), Color(18.892157, 1.4035361, 0, 1), Color(18.892157, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 18.892157, 1), Color(0, 0, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StarMesh(Temp):scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 181.8, 192.63333, 200, 207.23334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(2.64, 2.64, 2.64), Vector3(0.1, 0.1, 0.1), Vector3(10, 10, 10), Vector3(13, 13, 13)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8aup"]
 _data = {
 &"RESET": SubResource("Animation_yevqt"),
 &"explode": SubResource("Animation_k8aup")
 }
 
-[node name="StarTemplate" type="RigidBody3D" groups=["Gravity Objects"]]
+[node name="StarTemplate" type="RigidBody3D" unique_id=400857912 groups=["Gravity Objects"]]
 mass = 100000.0
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_odifk")
 planet_temp = ExtResource("2_k8aup")
 
-[node name="StarMesh(Temp)" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_yevqt")
+[node name="StarMesh(Temp)" type="MeshInstance3D" parent="." unique_id=228755847]
+mesh = SubResource("SphereMesh_k8aup")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1437950030]
 wait_time = 5.0
 one_shot = true
-autostart = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=775223614]
 light_energy = 70000.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 omni_range = 6000.0
 omni_attenuation = 2.0
 
-[node name="starColl" type="CollisionShape3D" parent="."]
+[node name="starColl" type="CollisionShape3D" parent="." unique_id=1836741]
 shape = SubResource("SphereShape3D_yevqt")
 
-[node name="ExplosionPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nsyqr")
-}
-speed_scale = 0.0
+[node name="ExplosionPlayer" type="AnimationPlayer" parent="." unique_id=2120649314]
+active = false
+root_motion_local = true
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_k8aup")
+speed_scale = 4.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=618848613]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 350.51978, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

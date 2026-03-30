@@ -4,7 +4,7 @@ class_name player
 var currentSystem : RigidBody3D
 var thrust := 0.0
 var isp = 0.0
-var SASSens := 400.0
+var SASSens := 1000.0
 @export var currSystem : RigidBody3D
 @onready var rvs_cam: Camera3D = $rvsCam
 @onready var _3_rd_cam: Camera3D = $"3rdCam"

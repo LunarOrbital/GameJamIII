@@ -36,17 +36,18 @@ func _ready() -> void:
 		var scale2 = Vector3(mass/20,mass/20,mass/20)
 		newerText.scale = scale2
 		planet_coll.scale = scale2
-		mass *=3
 	else:
 		planet_coll.queue_free()
+	mass *=2
 func _on_body_entered(body: Node) -> void:
 	if(body is Star):
 		self.queue_free()
 	elif(body is Planet):
 		if (self.mass > body.mass):
+			self.mass += body.mass*1.2
 			body.queue_free()
 		else:
-			queue_free()
+			self.queue_free()
 	elif(body is player):
 		body.landed = true 
 		body.landedAlt = global_position.distance_to(body.global_position)

@@ -8,7 +8,7 @@ var numStars : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numStars = randi_range(7, 16)
+	numStars = randi_range(8, 16)
 	Engine.time_scale = 1
 	for i in range(numStars):
 		var newStar : RigidBody3D = packed_star.instantiate()
@@ -30,21 +30,20 @@ func _physics_process(delta: float) -> void:
 					smallObj = obj2
 					largeObj = obj1
 				var dist = smallObj.global_position.distance_squared_to(largeObj.global_position)
-				if (dist<5000000):
-					if (largeObj is Star):
-						if (smallObj is Planet):
-							if (smallObj.currSystem == largeObj):
-								var force = G * (((smallObj.mass * largeObj.mass))/dist)
-								var angle = smallObj.global_position.direction_to(largeObj.global_position)
-								smallObj.apply_central_force(force * delta * angle)
-						elif (smallObj is player):
+				if (largeObj is Star):
+					if (smallObj is Planet):
+						if (smallObj.currSystem == largeObj):
 							var force = G * (((smallObj.mass * largeObj.mass))/dist)
 							var angle = smallObj.global_position.direction_to(largeObj.global_position)
 							smallObj.apply_central_force(force * delta * angle)
-					elif(largeObj is Planet):
+					elif (smallObj is player):
 						var force = G * (((smallObj.mass * largeObj.mass))/dist)
 						var angle = smallObj.global_position.direction_to(largeObj.global_position)
 						smallObj.apply_central_force(force * delta * angle)
+				elif(largeObj is Planet):
+					var force = G * (((smallObj.mass * largeObj.mass))/dist)
+					var angle = smallObj.global_position.direction_to(largeObj.global_position)
+					smallObj.apply_central_force(force/2 * delta * angle)
 						
 	if (player2.global_position.distance_squared_to(end_star.global_position) <1000000):
 		player2.dead = 0
@@ -57,7 +56,7 @@ func _physics_process(delta: float) -> void:
 
 @onready var sprite_3d_2: Sprite3D = $Eye/Sprite3D2
 @onready var sprite_3d_22: Sprite3D = $plinko/Sprite3D22
-#huu
+#huurgesteest
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	if (player2.diff2 == "easy"):
 		sprite_3d_2.visible = true

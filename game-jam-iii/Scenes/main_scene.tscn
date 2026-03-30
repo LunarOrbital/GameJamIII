@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://m4x12iavudha" path="res://Assets/New Piskel-1.png (1).png" id="5_iacmt"]
 [ext_resource type="PackedScene" uid="uid://biapg77r6k5qk" path="res://Scenes/planet.tscn" id="6_maf8m"]
 [ext_resource type="Texture2D" uid="uid://n67qu60dgpfh" path="res://Assets/icon.svg" id="7_huasi"]
+[ext_resource type="Shader" uid="uid://ds7cisj8ecy58" path="res://Assets/addons/naejimer_3d_planet_generator/shaders/main_scene.gdshader" id="7_m1efj"]
+[ext_resource type="Texture2D" uid="uid://6maxob4srf50" path="res://Assets/addons/naejimer_3d_planet_generator/noises/planet_sand.tres" id="8_m1efj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iacmt"]
 panorama = ExtResource("3_x6ack")
@@ -23,12 +25,47 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_jv6wh"]
 size = Vector3(6000, 6000, 50000)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_maf8m"]
-albedo_color = Color(0.07450981, 0, 0.3019608, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_mai8y"]
-material = SubResource("StandardMaterial3D_maf8m")
-flip_faces = true
+radius = 10.0
+height = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mai8y"]
+render_priority = 0
+shader = ExtResource("7_m1efj")
+shader_parameter/radius = 0.0
+shader_parameter/noise = ExtResource("8_m1efj")
+shader_parameter/spin = 0.8350000396625
+shader_parameter/shadow_asymmetry = 0.5
+shader_parameter/shadow_oblateness = 0.5
+shader_parameter/frame_drag_strength = 0.5
+shader_parameter/doppler_beaming = 0.5
+shader_parameter/warp_falloff = 8.0
+shader_parameter/warp_strength = 2.000000095
+shader_parameter/warp_inner_edge = 0.3
+shader_parameter/color_core = Color(0.88, 0.96, 1, 1)
+shader_parameter/brightness_core = 25.36400120479
+shader_parameter/color_hot = Color(0.2, 0.6, 1, 1)
+shader_parameter/brightness_hot = 8.1310003862225
+shader_parameter/color_mid = Color(0.05, 0.35, 1, 1)
+shader_parameter/brightness_mid = 2.85600013566
+shader_parameter/color_cool = Color(0.1, 0.45, 0.95, 1)
+shader_parameter/brightness_cool = 0.370000017575
+shader_parameter/color_outer = Color(0.95, 0.55, 0.15, 1)
+shader_parameter/brightness_outer = 0.2800000133
+shader_parameter/color_edge = Color(0.7, 0.08, 0.02, 1)
+shader_parameter/brightness_edge = 1.5890000754775
+shader_parameter/gradient_stop0 = 0.08
+shader_parameter/gradient_stop1 = 0.25
+shader_parameter/gradient_stop2 = 0.55
+shader_parameter/gradient_stop3 = 0.8
+shader_parameter/color_saturation = 1.210000057475
+shader_parameter/grav_redshift_strength = 0.85
+shader_parameter/turbulence_strength = 0.28
+shader_parameter/turbulence_scale = 2.5
+shader_parameter/turbulence_speed = 0.35
+shader_parameter/density_heat_strength = 0.55
+shader_parameter/density_heat_power = 0.3
+shader_parameter/rs = 1.7300000789151202
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huasi"]
 albedo_color = Color(0, 0.7019608, 0, 1)
@@ -68,14 +105,13 @@ texture = ExtResource("5_iacmt")
 shape = SubResource("BoxShape3D_jv6wh")
 
 [node name="Eye" parent="." unique_id=512269042 instance=ExtResource("6_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.08972, 128.83942, 5515.2056)
-visible = false
-mass = 90000.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.537415, 3064.021, -19806.137)
+mass = 640000.0
 check = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Eye" unique_id=387601099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.135254, -4.2387695, -13.836914)
 mesh = SubResource("SphereMesh_mai8y")
+surface_material_override/0 = SubResource("ShaderMaterial_mai8y")
 
 [node name="Sprite3D" type="Sprite3D" parent="Eye" unique_id=848710761]
 transform = Transform3D(-5.001392, 26.416357, 9.380177, -12.995768, 6.2575254, -24.55156, -24.837908, -8.593313, 10.957137, 0, 0, 0)
@@ -93,18 +129,11 @@ texture = ExtResource("7_huasi")
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Eye" unique_id=984446154]
 
 [node name="Sprite3D2" type="Sprite3D" parent="Eye" unique_id=2146373798]
-transform = Transform3D(5000, 0, 0, 0, 5000, 0, 0, 0, 5000, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 visible = false
 billboard = 1
 texture_filter = 0
 texture = ExtResource("5_iacmt")
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Eye" unique_id=744174002]
-transform = Transform3D(16.63, 0, 0, 0, 16.63, 0, 0, 0, 16.63, 10.689453, 0, 0)
-visible = false
-
-[node name="Camera3D" type="Camera3D" parent="Eye" unique_id=889302782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.988312, -4.576889, -12.600586)
 
 [node name="plinko" parent="." unique_id=1185307421 instance=ExtResource("6_maf8m")]
 transform = Transform3D(0.8660254, -0.4330128, -0.25, -0.43301275, -0.399519, -0.8080127, 0.2500001, 0.8080127, -0.5334936, -2414.6772, -2983.4888, 3740.208)
