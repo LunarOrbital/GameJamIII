@@ -27,7 +27,12 @@ func _process(_delta: float) -> void:
 	star_coll.scale = star_mesh_temp_.scale
 
 func make_planet() -> void:
-	for i in range(randi_range(2,6)):
+	if (Value_Manager.spawnCount == 2):
+		numPlanets = randi_range(3,7)
+	else:
+		numPlanets = randi_range(2,6)
+	
+	for i in range(numPlanets):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()
 		add_child(newPlanet)
 		newPlanet.position = Vector3((i*180)+randi_range(-50,50)+210, randf_range(-10,10), randf_range(-10,10))

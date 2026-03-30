@@ -83,16 +83,16 @@ packed_star = ExtResource("3_jv6wh")
 environment = SubResource("Environment_iacmt")
 
 [node name="Player" parent="." unique_id=1653315133 node_paths=PackedStringArray("currSystem") instance=ExtResource("2_6l7je")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 664.8092, -25148.14)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 gravity_scale = 0.0
 currSystem = NodePath("../BeginStar")
 
 [node name="BeginStar" parent="." unique_id=1575057368 instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23206.332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -861.7855, 1855.2402)
 starCheck = "start"
 
 [node name="EndStar" parent="." unique_id=1267238475 groups=["endstar"] instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24993.887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -861.7855, 50055.46)
 starCheck = "end"
 
 [node name="Sprite3D" type="Sprite3D" parent="EndStar" unique_id=1389484060]
@@ -102,11 +102,12 @@ texture_filter = 0
 texture = ExtResource("5_iacmt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=664261074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -861.7855, 25061.572)
 shape = SubResource("BoxShape3D_jv6wh")
 
 [node name="Eye" parent="." unique_id=512269042 instance=ExtResource("6_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.537415, 3064.021, -19806.137)
-mass = 640000.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.537415, 2202.2354, 5255.4355)
+mass = 40000.0
 check = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Eye" unique_id=387601099]
@@ -136,7 +137,7 @@ texture_filter = 0
 texture = ExtResource("5_iacmt")
 
 [node name="plinko" parent="." unique_id=1185307421 instance=ExtResource("6_maf8m")]
-transform = Transform3D(0.8660254, -0.4330128, -0.25, -0.43301275, -0.399519, -0.8080127, 0.2500001, 0.8080127, -0.5334936, -2414.6772, -2983.4888, 3740.208)
+transform = Transform3D(0.8660254, -0.4330128, -0.25, -0.43301275, -0.399519, -0.8080127, 0.2500001, 0.8080127, -0.5334936, -2414.6772, -3845.2744, 28801.781)
 mass = 10.0
 check = true
 
@@ -169,5 +170,9 @@ billboard = 1
 texture_filter = 0
 texture = ExtResource("5_iacmt")
 
+[node name="Floating-Point Reset" type="Timer" parent="." unique_id=1590139549]
+wait_time = 5.0
+
 [connection signal="screen_exited" from="Eye/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="plinko/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Floating-Point Reset" to="." method="_on_timer_timeout"]

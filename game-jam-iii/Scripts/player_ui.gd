@@ -18,6 +18,25 @@ extends Control
 @onready var eye_star: Sprite2D = $starPanel/eyeStar
 
 var diff : String
+
+func _ready() -> void:
+	if (Value_Manager.easy):
+		easy.visible= true
+		star_panel.visible = true
+	if (Value_Manager.mid):
+		med.visible= true
+		star_panel.visible = true
+	if (Value_Manager.hard):
+		hard.visible= true
+		star_panel.visible = true
+	if (Value_Manager.eye):
+		eye_star.visible= true
+		star_panel.visible = true
+	if (Value_Manager.plinko):
+		plinko_star.visible= true
+		star_panel.visible = true
+
+
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("pause")):
 		quit_2.visible = true
@@ -50,10 +69,13 @@ func display_screen(a : int):
 		label.text = "You've reached you final destination and lived! \n You've saved the human race!"
 		if (diff == "med"):
 			med.visible = true
+			Value_Manager._update_stars("mid")
 		elif (diff == 'hard'):
 			hard.visible = true
+			Value_Manager._update_stars("hard")
 		elif (diff == 'easy'):
 			easy.visible = true
+			Value_Manager._update_stars("easy")
 		star_panel.visible = true
 	elif (a == 1):
 		loss_screen.visible = true

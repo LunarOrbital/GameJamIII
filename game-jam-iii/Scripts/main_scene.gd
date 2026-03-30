@@ -5,17 +5,29 @@ var numStars : int
 @onready var player2: player = $Player
 @onready var end_star: Star = $EndStar
 @onready var eye: Planet = $Eye
+@onready var plinko: Planet = $plinko
+@onready var floating_point_reset: Timer = $"Floating-Point Reset"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	numStars = randi_range(8, 16)
+	if (Value_Manager.spawnCount == 0):
+		numStars = randi_range(3,9)
+	elif(Value_Manager.spawnCount == 1 || Value_Manager.spawnCount == -1):
+		numStars = randi_range(8,16)
+	else:
+		numStars = randi_range(14,20)
 	Engine.time_scale = 1
 	for i in range(numStars):
 		var newStar : RigidBody3D = packed_star.instantiate()
 		add_child(newStar)
-		newStar.position = Vector3(randi_range(-6000,6000),randi_range(-6000,6000),randi_range(-30000,30000))
+		newStar.position = Vector3(randi_range(-6000,6000),randi_range(-10000,6000),randi_range(0,64000))
 		newStar.rotation = Vector3(randi_range(0,360),randi_range(0,360),randi_range(0,360))
-
+	plinko.visible = Value_Manager.extraPlanets
+	eye.visible = Value_Manager.extraPlanets
+	if (Value_Manager.useFPO):
+		floating_point_reset.start(5)
+	
+	
 func _physics_process(delta: float) -> void:
 	#begin gravity code
 	for obj1 : RigidBody3D in get_tree().get_nodes_in_group("Gravity Objects"):
@@ -53,10 +65,9 @@ func _physics_process(delta: float) -> void:
 	if (Input.is_action_just_pressed("quit")):
 		print("EO2:Quit")
 		get_tree().quit()
-
 @onready var sprite_3d_2: Sprite3D = $Eye/Sprite3D2
 @onready var sprite_3d_22: Sprite3D = $plinko/Sprite3D22
-#huurgesteest
+
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	if (player2.diff2 == "easy"):
 		sprite_3d_2.visible = true
@@ -78,3 +89,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.isp = 0
 		body.thrust *=1.1
 		player2.player_ui.plinko_star.visible = true
+
+func _on_timer_timeout() -> void:
+	#WARNING THIS IS EXPERIMENTAL TEST CODE FOR FLOATING-POINT ORIGIN
+	var distanceTraveled = player2.global_position
+	self.global_position -= distanceTraveled
+	print("Reset position to:" + str(player2.global_position) + " and world to" + str(self.global_position) + "at a difference of " + str(distanceTraveled))
