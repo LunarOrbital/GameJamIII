@@ -58,8 +58,7 @@ func _physics_process(delta: float) -> void:
 			o2 += 1
 		if (fuel < 100):
 			fuel += 1
-	#make more accurate
-	spd2 = abs(linear_velocity.x + linear_velocity.y + linear_velocity.z)
+	spd2 = linear_velocity.length()
 	if (closestObj != null):
 		var alt = global_position.distance_to(closestObj.global_position)
 		player_ui.update_values(o2,fuel,alt,spd2)

@@ -7,15 +7,21 @@ var numStars : int
 @onready var eye: Planet = $Eye
 @onready var plinko: Planet = $plinko
 @onready var floating_point_reset: Timer = $"Floating-Point Reset"
+@onready var backup_sprite: MeshInstance3D = $Eye/BackupSprite
+@onready var shader_sprite: MeshInstance3D = $Eye/ShaderSprite
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if (Value_Manager.spawnCount == 0):
-		numStars = randi_range(3,9)
+		numStars = randi_range(2,6)
 	elif(Value_Manager.spawnCount == 1 || Value_Manager.spawnCount == -1):
 		numStars = randi_range(8,16)
-	else:
+	elif (Value_Manager.spawnCount == 2):
 		numStars = randi_range(14,20)
+		eye.scale = Vector3(2.64,2.64,2.64)
+	else:
+		numStars = randi_range(18,26)
 	Engine.time_scale = 1
 	for i in range(numStars):
 		var newStar : RigidBody3D = packed_star.instantiate()
@@ -26,8 +32,9 @@ func _ready() -> void:
 	eye.visible = Value_Manager.extraPlanets
 	if (Value_Manager.useFPO):
 		floating_point_reset.start(5)
-	
-	
+	if (Value_Manager.spawnCount == 0):
+		backup_sprite.visible = true
+		shader_sprite.visible = false
 func _physics_process(delta: float) -> void:
 	#begin gravity code
 	for obj1 : RigidBody3D in get_tree().get_nodes_in_group("Gravity Objects"):
@@ -74,10 +81,11 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	elif (player2.diff2 == "hax"):
 		sprite_3d_2.visible = true
 		sprite_3d_2.scale = Vector3(564,512,532)
-	elif (eye.global_position.distance_squared_to(player2.global_position)<500000):
+	elif (eye.global_position.distance_squared_to(player2.global_position)<5000000):
 		print("better than feldspar???!")
 		sprite_3d_22.visible = true
 		player2.player_ui.eye_star.visible = true
+		Value_Manager.eye = true
 	eye.global_position = Vector3(randi_range(-6000,6000),randi_range(-6000,6000),randi_range(-30000,30000))
 	eye.rotation = Vector3(randi_range(0,360),randi_range(0,360),randi_range(0,360))
 	print("its solanumin time")
@@ -89,9 +97,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.isp = 0
 		body.thrust *=1.1
 		player2.player_ui.plinko_star.visible = true
-
+		Value_Manager.plinko = true
 func _on_timer_timeout() -> void:
-	#WARNING THIS IS EXPERIMENTAL TEST CODE FOR FLOATING-POINT ORIGIN
-	var distanceTraveled = player2.global_position
-	self.global_position -= distanceTraveled
-	print("Reset position to:" + str(player2.global_position) + " and world to" + str(self.global_position) + "at a difference of " + str(distanceTraveled))
+	global_position -= player2.global_position
+	print("Reset position to:" + str(player2.global_position) + " and world to " + str(self.global_position))

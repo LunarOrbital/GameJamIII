@@ -13,14 +13,16 @@ func _update_values(useFPO2 : bool, extraPlanets2 : bool, spawnCount2 : int) -> 
 	extraPlanets =extraPlanets2
 	spawnCount = spawnCount2
 
-func _update_stars(str:String) -> void:
-	if str == "easy":
+func _update_stars(str2:String) -> void:
+	if str2 == "easy":
 		easy = true
-	if str == "mid":
+	if str2 == "mid":
 		mid = true
-	if str == "hard":
+	if str2 == "hard":
 		hard = true
-	if str == "eye":
+	if str2 == "eye":
 		eye = true
-	if str == "plinko":
+	if str2 == "plinko":
 		plinko = true
+
+	

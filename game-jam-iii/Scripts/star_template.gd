@@ -28,9 +28,11 @@ func _process(_delta: float) -> void:
 
 func make_planet() -> void:
 	if (Value_Manager.spawnCount == 2):
-		numPlanets = randi_range(3,7)
+		numPlanets = randi_range(2,7)
+	elif (Value_Manager.spawnCount == 3):
+		numPlanets = randi_range(3,11)
 	else:
-		numPlanets = randi_range(2,6)
+		numPlanets = randi_range(2,5)
 	
 	for i in range(numPlanets):
 		var newPlanet : RigidBody3D = planet_temp.instantiate()

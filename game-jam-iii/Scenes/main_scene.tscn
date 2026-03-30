@@ -34,38 +34,46 @@ render_priority = 0
 shader = ExtResource("7_m1efj")
 shader_parameter/radius = 0.0
 shader_parameter/noise = ExtResource("8_m1efj")
-shader_parameter/spin = 0.8350000396625
+shader_parameter/spin = 0.6450000306375
 shader_parameter/shadow_asymmetry = 0.5
 shader_parameter/shadow_oblateness = 0.5
 shader_parameter/frame_drag_strength = 0.5
-shader_parameter/doppler_beaming = 0.5
+shader_parameter/doppler_beaming = 1.6400000000000001
 shader_parameter/warp_falloff = 8.0
-shader_parameter/warp_strength = 2.000000095
+shader_parameter/warp_strength = 3.0000001425
 shader_parameter/warp_inner_edge = 0.3
 shader_parameter/color_core = Color(0.88, 0.96, 1, 1)
-shader_parameter/brightness_core = 25.36400120479
+shader_parameter/brightness_core = 22.0
 shader_parameter/color_hot = Color(0.2, 0.6, 1, 1)
-shader_parameter/brightness_hot = 8.1310003862225
+shader_parameter/brightness_hot = 10.0
 shader_parameter/color_mid = Color(0.05, 0.35, 1, 1)
-shader_parameter/brightness_mid = 2.85600013566
-shader_parameter/color_cool = Color(0.1, 0.45, 0.95, 1)
-shader_parameter/brightness_cool = 0.370000017575
+shader_parameter/brightness_mid = 3.13600014896
+shader_parameter/color_cool = Color(1, 1, 0.7411765, 1)
+shader_parameter/brightness_cool = 0.63600003021
 shader_parameter/color_outer = Color(0.95, 0.55, 0.15, 1)
-shader_parameter/brightness_outer = 0.2800000133
+shader_parameter/brightness_outer = 3.7890001799775
 shader_parameter/color_edge = Color(0.7, 0.08, 0.02, 1)
-shader_parameter/brightness_edge = 1.5890000754775
+shader_parameter/brightness_edge = 1.5210000722475
 shader_parameter/gradient_stop0 = 0.08
 shader_parameter/gradient_stop1 = 0.25
 shader_parameter/gradient_stop2 = 0.55
 shader_parameter/gradient_stop3 = 0.8
-shader_parameter/color_saturation = 1.210000057475
+shader_parameter/color_saturation = 1.5
 shader_parameter/grav_redshift_strength = 0.85
 shader_parameter/turbulence_strength = 0.28
 shader_parameter/turbulence_scale = 2.5
 shader_parameter/turbulence_speed = 0.35
 shader_parameter/density_heat_strength = 0.55
 shader_parameter/density_heat_power = 0.3
-shader_parameter/rs = 1.7300000789151202
+shader_parameter/rs = 0.64500002737762
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mai8y"]
+albedo_color = Color(0.011764706, 0.078431375, 0.28235295, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_76v2p"]
+material = SubResource("StandardMaterial3D_mai8y")
+radius = 5.0
+height = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huasi"]
 albedo_color = Color(0, 0.7019608, 0, 1)
@@ -74,6 +82,7 @@ albedo_color = Color(0, 0.7019608, 0, 1)
 albedo_color = Color(0.27513385, 0.11315005, 4.813075e-08, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mai8y"]
+height = 2.5996094
 
 [node name="Main_Scene" type="Area3D" unique_id=179402632]
 script = ExtResource("1_52fb6")
@@ -103,38 +112,40 @@ texture = ExtResource("5_iacmt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=664261074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -861.7855, 25061.572)
+visible = false
 shape = SubResource("BoxShape3D_jv6wh")
 
 [node name="Eye" parent="." unique_id=512269042 instance=ExtResource("6_maf8m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.537415, 2202.2354, 5255.4355)
-mass = 40000.0
+transform = Transform3D(0.96805364, 0.25003475, -0.018831827, -0.1779607, 0.63221115, -0.75408137, -0.17664085, 0.7333426, 0.65651083, -12.537415, 2202.2354, 5255.4355)
+mass = 64000.0
 check = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Eye" unique_id=387601099]
+[node name="ShaderSprite" type="MeshInstance3D" parent="Eye" unique_id=387601099]
 mesh = SubResource("SphereMesh_mai8y")
 surface_material_override/0 = SubResource("ShaderMaterial_mai8y")
-
-[node name="Sprite3D" type="Sprite3D" parent="Eye" unique_id=848710761]
-transform = Transform3D(-5.001392, 26.416357, 9.380177, -12.995768, 6.2575254, -24.55156, -24.837908, -8.593313, 10.957137, 0, 0, 0)
-visible = false
-modulate = Color(0.105882354, 0.09019608, 0.34117648, 0.65882355)
-texture = ExtResource("7_huasi")
-
-[node name="Sprite3D3" type="Sprite3D" parent="Eye" unique_id=537938286]
-transform = Transform3D(-1.7616843, 9.304867, 3.3040628, -4.5776143, 2.2041438, -8.648011, -8.748875, -3.0268984, 3.85953, 0, 0, 0)
-visible = false
-modulate = Color(0.105882354, 0.09019608, 0.34117648, 0.65882355)
-billboard = 1
-texture = ExtResource("7_huasi")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="Eye" unique_id=984446154]
 
 [node name="Sprite3D2" type="Sprite3D" parent="Eye" unique_id=2146373798]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 visible = false
 billboard = 1
 texture_filter = 0
 texture = ExtResource("5_iacmt")
+
+[node name="BackupSprite" type="MeshInstance3D" parent="Eye" unique_id=1132701548]
+visible = false
+mesh = SubResource("SphereMesh_76v2p")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Eye/BackupSprite" unique_id=537938286]
+transform = Transform3D(-1.7616843, 9.304867, 3.3040628, -4.5776143, 2.2041438, -8.648011, -8.748875, -3.0268984, 3.85953, 0, 0, 0)
+modulate = Color(0.105882354, 0.09019608, 0.34117648, 0.65882355)
+billboard = 1
+texture = ExtResource("7_huasi")
+
+[node name="Sprite3D" type="Sprite3D" parent="Eye/BackupSprite" unique_id=848710761]
+transform = Transform3D(-5.001392, 26.416357, 9.380177, -12.995768, 6.2575254, -24.55156, -24.837908, -8.593313, 10.957137, 0, 0, 0)
+modulate = Color(0.105882354, 0.09019608, 0.34117648, 0.65882355)
+texture = ExtResource("7_huasi")
 
 [node name="plinko" parent="." unique_id=1185307421 instance=ExtResource("6_maf8m")]
 transform = Transform3D(0.8660254, -0.4330128, -0.25, -0.43301275, -0.399519, -0.8080127, 0.2500001, 0.8080127, -0.5334936, -2414.6772, -3845.2744, 28801.781)
@@ -160,7 +171,7 @@ material = SubResource("StandardMaterial3D_m1efj")
 transform = Transform3D(1.64, 0, 0, 0, 1.64, 0, 0, 0, 1.64, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="plinko/Area3D" unique_id=1616684346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8547363, 0)
+transform = Transform3D(1, -1.4901161e-08, -5.364418e-07, 0, 1, 4.053116e-06, 1.4901161e-08, 0, 1.0000007, 0, 0.55566406, 0)
 shape = SubResource("CylinderShape3D_mai8y")
 
 [node name="Sprite3D22" type="Sprite3D" parent="plinko" unique_id=1712228035]
@@ -171,7 +182,8 @@ texture_filter = 0
 texture = ExtResource("5_iacmt")
 
 [node name="Floating-Point Reset" type="Timer" parent="." unique_id=1590139549]
-wait_time = 5.0
+wait_time = 6.45
+ignore_time_scale = true
 
 [connection signal="screen_exited" from="Eye/VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="plinko/Area3D" to="." method="_on_area_3d_body_entered"]

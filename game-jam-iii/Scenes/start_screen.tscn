@@ -33,7 +33,7 @@ offset_bottom = 671.0
 scale = Vector2(0.53565764, 0.53565764)
 theme_override_fonts/font = ExtResource("3_5e717")
 theme_override_font_sizes/font_size = 40
-text = "v. 1.1.5 (Release Candidate)"
+text = "v. 1.1.6 (Release Candidate)"
 
 [node name="LinkButton" type="LinkButton" parent="." unique_id=1834625502]
 layout_mode = 0
@@ -186,18 +186,20 @@ text = "Show Easter Egg Planets (Plinko & the Eye)"
 
 [node name="SpawnCount" type="OptionButton" parent="Options" unique_id=2059025961]
 layout_mode = 0
-offset_left = 606.0
+offset_left = 597.5087
 offset_top = 152.0
-offset_right = 674.0
+offset_right = 683.5087
 offset_bottom = 183.0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "Low"
 popup/item_0/id = 0
 popup/item_1/text = "Mid"
 popup/item_1/id = 1
 popup/item_2/text = "High"
 popup/item_2/id = 2
+popup/item_3/text = "Extreme"
+popup/item_3/id = 3
 
 [node name="Label2" type="Label" parent="Options" unique_id=185913521]
 layout_mode = 0
